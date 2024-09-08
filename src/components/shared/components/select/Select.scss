@@ -1,0 +1,24 @@
+@import "../../../styles/variables.scss";
+
+.custom-select {
+  width: 123px;
+  min-height: 40px;
+  border-radius: 32px;
+
+  .ant-select-selector {
+    border-radius: inherit !important; // Ensure the selector adopts the same radius
+    height: auto;
+    display: flex;                    
+    justify-content: center;          
+    align-items: center;             
+    padding: 0 10px;                 
+
+    .ant-select-selection-item {
+      display: flex;
+      justify-content: center;        
+      width: 100%;
+      color: $color-primary;
+      font-weight: 600;
+    }
+  }
+}

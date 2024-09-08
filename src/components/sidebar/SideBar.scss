@@ -1,0 +1,71 @@
+@import "../styles/variables.scss";
+
+.sidebar {
+  width: 64px;
+  height: 100vh; /* Full height of viewport */
+  padding: 12px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #F7F8FA;
+  position: fixed;
+  top: 0;
+  left: 0;
+  .sidebar-top {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    align-items: center;
+
+    .sidebar-item {
+      display: flex;
+      flex-direction: column; 
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      padding: 8px;
+      text-decoration: none;
+      color: $color-primary;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+
+      &:hover {
+        background-color: #E1E5E9;
+        border-radius: 4px;
+      }
+
+      svg {
+        fill: $color-primary;
+        width: 24px;
+        height: 24px;
+      }
+
+      span {
+        white-space: wrap;
+        overflow-wrap: break-word; 
+        font-family: 'Inter', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 18px;
+        text-align: center;
+        color: $color-primary;
+      }
+    }
+  }
+
+  .sidebar-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 16px; 
+
+    .sidebar-user-icon {
+      svg {
+        fill: $color-primary;
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}

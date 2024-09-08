@@ -1,0 +1,11 @@
+@import "../../../styles/variables.scss";
+
+.custom-checkbox {
+    // Target when checkbox is checked
+    .ant-checkbox-checked {
+        .ant-checkbox-inner {
+            background-color: $color-primary !important;  
+            border-color: $color-primary !important;    
+        }
+    }
+}

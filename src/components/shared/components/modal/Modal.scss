@@ -1,0 +1,56 @@
+@import "../../../styles/variables.scss";
+
+.custom-modal {
+  .ant-modal-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: left;
+    color: $color-primary; 
+  }
+
+  .ant-modal-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: $color-primary; 
+    padding: 15px 0;
+  }
+
+  .ant-btn {
+    border-radius: 32px; 
+    height: auto;
+    padding: 12px 20px;
+    font-weight: 600; 
+    min-width: 95px;
+    min-height: 40px;
+
+    &.ant-btn-default {
+      background-color: white; 
+      color: $color-primary; 
+      border: 1px solid #D8E0E8;
+
+      &:hover,
+      &:focus {
+        background-color: white; 
+        color: $color-primary; 
+        border: 1px solid #D8E0E8;
+      }
+    }
+
+    &.ant-btn-primary {
+      background-color: #E53232; 
+      color: white; 
+      border: none; 
+
+      &:hover,
+      &:focus {
+        background-color: #E53232; 
+        color: white; 
+      }
+    }
+  }
+}

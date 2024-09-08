@@ -1,0 +1,17 @@
+// Text.scss
+@import "../../../../styles/variables.scss";
+
+.custom-input {
+    width: 240px;
+    gap: 4px;
+    opacity: 1;
+
+    .ant-input {
+        border: none; 
+        color: $color-primary;
+        margin-left: 6px;
+        &::placeholder {
+            color: $color-tertiary;
+        }
+    }
+}

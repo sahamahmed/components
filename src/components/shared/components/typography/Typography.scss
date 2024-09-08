@@ -1,0 +1,73 @@
+@import "../../../styles/variables.scss";
+
+/* Shared Styles */
+.typography {
+  font-family: "Inter", sans-serif;
+
+  &.page-header {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    color: $color-primary;
+  }
+
+  &.section-header {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: $color-primary;
+  }
+
+  &.sub-section-header {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: $color-mid-blue;
+  }
+
+  &.regular {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: $color-mid-blue;
+  }
+
+  &.action-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: $color-default;
+  }
+
+  &.info-header {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: $color-default;
+  }
+
+  &.btn-list-text {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    color: $color-primary;
+  }
+
+  &.helper-text {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    color: $color-secondary;
+  }
+
+  &.error-text {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    color: $color-danger;
+  }
+}

@@ -1,0 +1,144 @@
+@import "../../../styles/variables.scss";
+
+.btn {
+  min-width: 164px;
+  min-height: 40px;
+  height: auto;
+  padding: 12px 20px;
+  gap: 12px;
+  border-radius: 32px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  font-weight: 600;
+  margin-right: 2px;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-label {
+  font-weight: 600;
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: $color-secondary;
+  color: #fff;
+  border: none;
+  opacity: 1;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: #ffffff;
+  color: $color-primary;
+  border: 1px solid #D8E0E8;
+  opacity: 1;
+}
+
+/* Tertiary Button */
+.btn-tertiary {
+  background-color: transparent;
+  color: $color-primary;
+  border: none;
+  opacity: 1;
+}
+
+/* Destructive Button */
+.btn-destructive {
+  background-color: #E53232;
+  color: #fff;
+  border: none;
+  opacity: 1;
+}
+
+/* Hover States */
+.btn-primary:hover {
+  background: #597796;
+}
+
+.btn-secondary:hover {
+  background: #F7F8FA;
+  border: 1px solid #D8E0E8;
+}
+
+.btn-tertiary:hover {
+  border: 1px solid #D8E0E8;
+}
+
+.btn-destructive:hover {
+  background: $color-danger;
+}
+
+/* Active States */
+.btn-primary:active {
+  background: $color-primary;
+}
+
+.btn-secondary:active {
+  border: 1px solid #D8E0E8;
+  box-shadow: 0px 0px 0px 4px #849DB7;
+  background: #FFFFFF;
+}
+
+.btn-tertiary:active {
+  box-shadow: 0px 0px 0px 2px #F7F8FA;
+}
+
+.btn-destructive:active {
+  background: #A72525;
+  box-shadow: 0px 0px 0px 2px #FFFFFF;
+}
+
+/* Focused States */
+.btn-primary:focus {
+  box-shadow: 0px 0px 0px 4px #849DB7, 0px 0px 0px 2px #FFFFFF;
+}
+
+.btn-secondary:focus {
+  border: 1px solid #D8E0E8;
+  box-shadow: 0px 0px 0px 4px #849DB7, 0px 0px 0px 2px #FFFFFF;
+}
+
+.btn-tertiary:focus {
+  box-shadow: 0px 0px 0px 4px #849DB7, 0px 0px 0px 2px #FFFFFF;
+}
+
+.btn-destructive:focus {
+  background: #E53232;
+  box-shadow: 0px 0px 0px 4px #849DB7, 0px 0px 0px 2px #FFFFFF;
+}
+
+/* Disabled States */
+.btn-primary:disabled {
+  background: #8198AF;
+  opacity: 0.57;
+  color: $color-primary;
+  cursor: not-allowed;
+}
+
+.btn-secondary:disabled {
+  background: #FFFFFF;
+  border: 1px solid #D8E0E8;
+  opacity: 0.57;
+  cursor: not-allowed;
+}
+
+.btn-tertiary:disabled {
+  opacity: 0.57;
+  cursor: not-allowed;
+}
+
+.btn-destructive:disabled {
+  background: #E53232;
+  opacity: 0.57;
+  cursor: not-allowed;
+}

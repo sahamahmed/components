@@ -1,0 +1,13 @@
+@import "../../../styles/variables.scss";
+
+.custom-toggle {
+    &.ant-switch-checked {
+        background-color: $color-primary !important;  
+
+        &:hover:not(.ant-switch-disabled) {
+            background-color: $color-primary !important;  
+        }
+    }
+
+
+}
