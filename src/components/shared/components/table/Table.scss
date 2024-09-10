@@ -1,0 +1,43 @@
+.custom-table-row {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    text-align: left;
+    color: #000000DE;
+    padding: 0 10px;
+    border-bottom: 1px solid #D8E0E8;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    td {
+        padding: 0 10px;
+    }
+
+    .actions a {
+        color: inherit;
+    }
+}
+
+.ant-table-thead > tr > th {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    text-align: left;
+    background-color: #E0E0E0;
+    color: #000000DE;
+    padding: 10px;
+}
+
+.ant-table-row {
+    border-bottom: 1px solid #D8E0E8;
+    opacity: 1; 
+}
+
+.ant-table-cell {
+    max-width: 200px; 
+    
+}

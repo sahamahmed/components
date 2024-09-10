@@ -1,24 +1,43 @@
-@import "../../../styles/variables.scss";
+.custom-select-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 123px;
+    height: 40px; 
+}
 
-.custom-select {
-  width: 123px;
-  min-height: 40px;
-  border-radius: 32px;
+.custom-select-label {
+    position: absolute;
+    top: -13px; 
+    left: 10px;
+    background-color: white; 
+    padding: 0 4px;
+    color: #000000DE; 
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    z-index: 1; 
+}
 
-  .ant-select-selector {
-    border-radius: inherit !important; // Ensure the selector adopts the same radius
-    height: auto;
-    display: flex;                    
-    justify-content: center;          
-    align-items: center;             
-    padding: 0 10px;                 
+.custom-select .ant-select-selector {
+    height: 40px !important; 
+    padding: 0 10px; 
+    font-size: 16px;
+    border-radius: 32px;
+    display: flex;
+}
 
-    .ant-select-selection-item {
-      display: flex;
-      justify-content: center;        
-      width: 100%;
-      color: $color-primary;
-      font-weight: 600;
-    }
-  }
+.custom-select .ant-select-selection-item {
+    font-size: 16px;
+    color: #000000DE;
+}
+
+.custom-select .ant-select-selection-placeholder {
+    font-size: 16px;
+    color: #888; 
+}
+
+.ant-select.css-dev-only-do-not-override-14i19y2 {
+    height: 40px;
 }

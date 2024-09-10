@@ -6,15 +6,24 @@ const handleChange = (value) => {
     console.log(value);
 };
 
-const Select = ({ options = [], defaultValue = { value: '', label: 'Filter By' }, onChange = handleChange, ...restProps }) => (
-    <SelectComponent
-        labelInValue
-        defaultValue={defaultValue}
-        className='custom-select'
-        onChange={onChange}
-        options={options}
-        {...restProps}
-    />
+const { Option } = SelectComponent;
+
+const Select = ({ options = [], defaultValue = { value: '', label: '' }, label="Filter by",onChange = handleChange, ...restProps }) => (
+    <div className='custom-select-container'>
+        <label className='custom-select-label'>{label}</label>
+        <SelectComponent
+            className='custom-select'
+            labelInValue
+            defaultValue={defaultValue}
+            {...restProps}
+        >
+            {options.map(option => (
+                <Option key={option.value} value={option.value}>
+                    {option.label}
+                </Option>
+            ))}
+        </SelectComponent>
+    </div>
 );
 
 export default Select;

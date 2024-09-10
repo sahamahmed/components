@@ -1,5 +1,8 @@
+import BarChartComponent from './components/shared/components/graph/Graph';
 import Sidebar from './components/sidebar/SideBar';
 import Test from './components/Testing';
+import WorkflowList from './components/WorkflowList';
+
 
 function App() {
   return (
@@ -7,7 +10,7 @@ function App() {
       <header style={{ display: "flex" }}>
         <Sidebar />
         <div style={{ marginLeft: "76px", width: "100%" }}>
-          <Test />
+          <WorkflowList />
         </div>
       </header>
     </div>
