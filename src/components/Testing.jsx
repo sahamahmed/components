@@ -66,7 +66,6 @@ function Test() {
 
             <div style={{ display: "flex", gap: "10px" }}>
                 <CheckBox checked>Checkbox</CheckBox>
-
             </div>
 
             <Modal

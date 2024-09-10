@@ -7,7 +7,7 @@
     opacity: 1;
     width: 460px;
     .ant-input {
-        border: none; 
+        border: 0.5px solid #eee; 
         color: $color-primary;
         margin-left: 6px;
         &::placeholder {

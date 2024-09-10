@@ -1,0 +1,69 @@
+.run-workflow-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 4px;
+
+    .title {
+      font-weight: 700;
+    }
+  }
+
+  .field {
+    .field-label {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      margin-bottom: 4px;
+
+      
+    }
+
+    .input {
+      width: 550px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+  
+  }
+
+  .checkbox {
+    margin-top: 8px;
+  }
+
+  .schedule {
+    margin-top: 20px;
+
+    .schedule-section {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .select-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: start;
+    }
+  }
+}
+.dot {
+        background-color: red;
+        height: 4px;
+        width: 4px;
+        border-radius: 100%;
+      }
+.selectors {
+  display: flex;
+  gap: 8px;
+  justify-content: start;
+  align-items: center;
+  margin-top: 8px;
+}

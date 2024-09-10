@@ -4,7 +4,7 @@ import { ReactComponent as SearchIcon } from '../../../../../public/icons/search
 import { ReactComponent as CrossIcon } from '../../../../../public/icons/cross-icon.svg';
 import './Text.scss';
 
-const Input = ({ placeholder = "Search", size = "large", type = "text", ...restProps }) => {
+const Input = ({ placeholder = "Search", size = "large", type = "text", isPrefix = true , ...restProps }) => {
     const [value, setValue] = useState(''); 
 
     const handleChange = (e) => {
@@ -20,7 +20,7 @@ const Input = ({ placeholder = "Search", size = "large", type = "text", ...restP
             <InputComponent
                 placeholder={placeholder}
                 size={size}
-                prefix={<SearchIcon />}
+                prefix={isPrefix ? <SearchIcon /> : null}
                 suffix={value ? <CrossIcon onClick={handleClear} style={{ cursor: 'pointer' }} /> : null}
                 type={type}
                 value={value}

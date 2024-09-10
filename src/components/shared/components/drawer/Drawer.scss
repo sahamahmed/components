@@ -1,0 +1,42 @@
+@import "../../../styles/variables.scss";
+
+.drawer {
+ .ant-drawer-header {
+    padding: 24px !important;
+  }
+}
+
+.ant-drawer-content-wrapper {
+    width: 600px !important;
+  }
+
+.ant-drawer-title {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    line-height: 30px;
+    text-align: left;
+    color: #0E263F;
+  }
+
+.ant-drawer-body{
+  padding: 0 24px !important;
+}
+
+.drawer-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+    gap: 8px;
+    z-index: 0;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+    .ant-tabs-tab-btn {
+      color: $color-primary !important; 
+    }
+   
+  }
+
+.ant-tabs-ink-bar {
+    background-color: $color-primary !important; 
+  }

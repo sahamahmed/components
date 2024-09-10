@@ -10,7 +10,7 @@ const TableComponent = ({ columns, data }) => {
                 showSizeChanger: true,
                 size: 'default', 
             }}
-            className="custom-table-row"        />
+            className="custom-table-row"    />
     );
 };
 
