@@ -3,74 +3,26 @@ import Typography from './shared/components/typography/Typography'
 import Input from './shared/components/inputs/text/Text'
 import Select from './shared/components/select/Select'
 import Button from './shared/components/button/Button'
-import { PlusOutlined } from '@ant-design/icons';
+import Icon, { PlusOutlined } from '@ant-design/icons';
 import './WorkflowList.scss';
 import TableComponent from './shared/components/table/Table'
 import ToggleSwitch from './shared/components/toggle/ToggleSwitch'
 import { MoreOutlined } from '@ant-design/icons';
 import BarChartComponent from './shared/components/graph/Graph'
+import Dropdown from './shared/components/dropdown/Dropdown'
+import {PlayCircleOutlined, EditOutlined, EyeOutlined, DeleteOutlined } from '@ant-design/icons';
 
 
 
-const columns = [
-    {
-        title: 'Template Name',
-        dataIndex: 'templateName',
-        key: 'templateName',
-    },
-    {
-        title: 'Created At',
-        dataIndex: 'createdAt',
-        key: 'createdAt',
-    },
-    {
-        title: 'Workflow Description',
-        dataIndex: 'workflowDescription',
-        key: 'workflowDescription',
-    },
-    {
-        title: 'Active/Inactive',
-        dataIndex: 'status',
-        key: 'status',
-        render: (text, record) => (
-            <ToggleSwitch
-                defaultChecked={record.status === 'Active'}
-                onChange={(checked) => console.log(record.key, checked)}
-            />
-        ),
-    },
-    {
-        title: 'Last Run',
-        dataIndex: 'lastRun',
-        key: 'lastRun',
-    },
-    {
-        title: 'Results History',
-        dataIndex: 'resultsHistory',
-        key: 'resultsHistory',
-        render: (text, record) => (
-            <div className='bar'>
-                <BarChartComponent
-                    data={record.historyData}
-                />
-            </div>
-        ),
-    },
-    {
-        title: 'Schedule',
-        dataIndex: 'schedule',
-        key: 'schedule',
-    },
-    {
-        title: 'Actions',
-        key: 'actions',
-        render: (text, record) => (
-            <MoreOutlined onClick={()=> {}} style={{ background: "#D8E0E8", padding: '6px', borderRadius: "100%", cursor: "pointer" }} />
-        ),
-    },
+const menuItems = [
+    { label: 'Run Workflow', icon: PlayCircleOutlined, onClick: () => console.log('Run Workflow clicked') },
+    { label: 'Edit Workflow', icon: EditOutlined, onClick: () => console.log('Edit Workflow clicked') },
+    { label: 'View Workflow', icon: EyeOutlined, onClick: () => console.log('View Workflow clicked') },
+    { label: 'Delete Workflow', icon: DeleteOutlined, onClick: () => console.log('Delete Workflow clicked') },
 ];
 
 const WorkflowList = () => {
+
     const data = [
         {
             key: '1',
@@ -112,6 +64,68 @@ const WorkflowList = () => {
         },
     ];
 
+
+    const columns = [
+        {
+            title: 'Template Name',
+            dataIndex: 'templateName',
+            key: 'templateName',
+        },
+        {
+            title: 'Created At',
+            dataIndex: 'createdAt',
+            key: 'createdAt',
+        },
+        {
+            title: 'Workflow Description',
+            dataIndex: 'workflowDescription',
+            key: 'workflowDescription',
+        },
+        {
+            title: 'Active/Inactive',
+            dataIndex: 'status',
+            key: 'status',
+            render: (text, record) => (
+                <ToggleSwitch
+                    defaultChecked={record.status === 'Active'}
+                    onChange={(checked) => console.log(record.key, checked)}
+                />
+            ),
+        },
+        {
+            title: 'Last Run',
+            dataIndex: 'lastRun',
+            key: 'lastRun',
+        },
+        {
+            title: 'Results History',
+            dataIndex: 'resultsHistory',
+            key: 'resultsHistory',
+            render: (text, record) => (
+                <div className='bar'>
+                    <BarChartComponent
+                        data={record.historyData}
+                    />
+                </div>
+            ),
+        },
+        {
+            title: 'Schedule',
+            dataIndex: 'schedule',
+            key: 'schedule',
+        },
+        {
+            title: 'Actions',
+            key: 'actions',
+            render: (text, record) => (
+                <Dropdown menuItems={menuItems}>
+                    <MoreOutlined className='action-icon' />
+                </Dropdown>
+            ),
+        }
+
+    ];
+
     return (
         <div className="workflow-list-container">
             <div className="workflow-header">
@@ -132,7 +146,7 @@ const WorkflowList = () => {
                             { value: 'option2', label: 'Option 2' }
                         ]}
                         disabled={false}
-                        label='Filter By'
+                        defaultValue={{value: '', label: 'Filter By' }}
                     />
                     <Select
                         options={[
@@ -140,7 +154,7 @@ const WorkflowList = () => {
                             { value: 'option2', label: 'Option 2' }
                         ]}
                         disabled={false}
-                        label='Sort By'
+                        defaultValue={{ value: '', label: 'Sort By' }}
                     />
                     <Button type="primary" label="New Workflow">
                         <PlusOutlined />
@@ -157,4 +171,5 @@ const WorkflowList = () => {
 };
 
 export default WorkflowList;
+
 

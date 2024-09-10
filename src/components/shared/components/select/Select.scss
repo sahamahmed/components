@@ -29,8 +29,11 @@
 }
 
 .custom-select .ant-select-selection-item {
+        font-weight: 600;
     font-size: 16px;
-    color: #000000DE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .custom-select .ant-select-selection-placeholder {

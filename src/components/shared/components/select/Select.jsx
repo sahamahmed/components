@@ -8,9 +8,8 @@ const handleChange = (value) => {
 
 const { Option } = SelectComponent;
 
-const Select = ({ options = [], defaultValue = { value: '', label: '' }, label="Filter by",onChange = handleChange, ...restProps }) => (
+const Select = ({ options = [], defaultValue = { value: '', label: '' },onChange = handleChange, ...restProps }) => (
     <div className='custom-select-container'>
-        <label className='custom-select-label'>{label}</label>
         <SelectComponent
             className='custom-select'
             labelInValue

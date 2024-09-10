@@ -25,3 +25,16 @@
     width: 100px;
     height: 50px;
 }
+
+.action-icon {
+  padding: 6px;
+  border-radius: 100%;
+  cursor: pointer;
+  border: 1px solid #D8E0E8;
+  transition: background-color 0.3s ease;
+  color: black;
+
+  &:hover {
+    background-color: #D8E0E8;
+  }
+}
