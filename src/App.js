@@ -1,6 +1,7 @@
 import BarChartComponent from './components/shared/components/graph/Graph';
 import Sidebar from './components/sidebar/SideBar';
 import Test from './components/Testing';
+import ViewWorkFlow from './components/ViewWorkFlow';
 import WorkflowList from './components/WorkflowList';
 
 
@@ -11,6 +12,7 @@ function App() {
         <Sidebar />
         <div style={{ marginLeft: "76px", width: "100%" }}>
           <WorkflowList />
+          {/* <ViewWorkFlow /> */}
         </div>
       </header>
     </div>

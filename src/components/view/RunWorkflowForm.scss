@@ -5,12 +5,14 @@
 
   .header {
     display: flex;
+    height: 32px;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     padding: 4px;
 
     .title {
       font-weight: 700;
+      font-size: 20px;
     }
   }
 

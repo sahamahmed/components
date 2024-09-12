@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs as AntTabs } from 'antd';
-import RunWorkflowForm from '../../../RunWorkflowForm';
+import RunWorkflowForm from '../../../view/RunWorkflowForm';
 import './Tabs.scss';
 
 const onChange = (key) => {

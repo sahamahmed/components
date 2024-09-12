@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Typography from './shared/components/typography/Typography';
-import Select from './shared/components/select/Select';
-import Input from './shared/components/inputs/text/Text';
-import CheckBox from './shared/components/checkbox/CheckBox';
-import Tags from './shared/components/tags/Tag';
+import Typography from '../shared/components/typography/Typography';
+import Select from '../shared/components/select/Select';
+import Input from '../shared/components/inputs/text/Text';
+import CheckBox from '../shared/components/checkbox/CheckBox';
+import Tags from '../shared/components/tags/Tag';
 import './RunWorkflowForm.scss'; 
 
 const RunWorkflowForm = () => {
@@ -16,9 +16,9 @@ const RunWorkflowForm = () => {
     return (
         <div className="run-workflow-form">
             <div className="header">
-                <Typography type="sub-section-header" className="title">Action</Typography>
+                <Typography type="section-header" className="title">Action</Typography>
                 <Select
-                    defaultValue={{ value: '', label: 'Pull' }}
+                    defaultValue={{ value: 'option 2', label: 'Pull' }}
                     options={[
                         { value: 'option1', label: 'Push' },
                         { value: 'option2', label: 'Pull' }

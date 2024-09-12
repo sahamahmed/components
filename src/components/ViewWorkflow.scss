@@ -1,0 +1,40 @@
+.workflow-list-container {
+  margin: 16px;
+}
+
+.workflow-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.workflow-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workflow-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.bar {
+    width: 100px;
+    height: 50px;
+}
+
+.action-icon {
+  padding: 6px;
+  border-radius: 100%;
+  cursor: pointer;
+  border: 1px solid #D8E0E8;
+  transition: background-color 0.3s ease;
+  color: black;
+
+  &:hover {
+    background-color: #D8E0E8;
+  }
+}

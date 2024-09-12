@@ -1,0 +1,78 @@
+.custom-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 16px 16px 32px 16px;
+
+    .rows-per-page {
+        display: flex;
+        align-items: center;
+
+        .dropdown {
+            margin-left: 5px;
+            position: relative;
+
+            .dropdown-selected {
+                display: flex;
+                align-items: center;
+                padding: 4px 8px;
+                background-color: white;
+                cursor: pointer;
+
+                svg {
+                    margin-left: 8px;
+                }
+            }
+
+            .dropdown-options {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                
+                border: 1px solid #ccc;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                border-radius: 6px;
+                z-index: 1;
+
+                .dropdown-option {
+                    padding: 6px;
+                    cursor: pointer;
+                    border-bottom: 0.5px solid #ccc;
+
+                    &:hover {
+                        background-color: #f0f0f0;
+                    }
+                }
+            }
+        }
+    }
+
+    
+
+    .pagination-controls {
+        display: flex;
+        align-items: center;
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            &:disabled {
+                cursor: not-allowed;
+
+                svg path {
+                    fill: rgba(0, 0, 0, 0.26); 
+                }
+            }
+
+            svg path {
+                fill: rgba(0, 0, 0, 0.87); 
+            }
+        }
+    }
+}

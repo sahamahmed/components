@@ -1,13 +1,14 @@
 import React from 'react';
 import { Dropdown as DropdownComponent, Space } from 'antd';
 import './Dropdown.scss'
-const Dropdown = ({ menuItems, children }) => {
+import './Select.scss'
+const Select = ({ menuItems, children }) => {
 
     return (
         <DropdownComponent
             menu={{
                 items: menuItems.map(({ label, icon: Icon, onClick }, index) => ({
-                    key: label,
+                    key: index,
                     label,
                     icon: Icon && <Icon />,
                     onClick,
@@ -16,10 +17,12 @@ const Dropdown = ({ menuItems, children }) => {
             trigger={['click']}
         >
             <Space>
-                {children}
+                <div style={{height:"40px", width:"40px", background:"red"}}>
+
+                </div>
             </Space>
         </DropdownComponent>
     );
 };
 
-export default Dropdown;
+export default Select;
