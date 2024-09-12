@@ -1,7 +1,7 @@
 import BarChartComponent from './components/shared/components/graph/Graph';
 import Sidebar from './components/sidebar/SideBar';
 import Test from './components/Testing';
-import ViewWorkFlow from './components/ViewWorkFlow';
+import ViewWorkFlow from './components/view/ViewWorkFlow';
 import WorkflowList from './components/WorkflowList';
 
 

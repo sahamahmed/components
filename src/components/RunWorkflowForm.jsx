@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Typography from '../shared/components/typography/Typography';
-import Select from '../shared/components/select/Select';
-import Input from '../shared/components/inputs/text/Text';
-import CheckBox from '../shared/components/checkbox/CheckBox';
-import Tags from '../shared/components/tags/Tag';
-import './RunWorkflowForm.scss'; 
+import Typography from './shared/components/typography/Typography';
+import Select from './shared/components/select/Select';
+import Input from './shared/components/inputs/text/Text';
+import CheckBox from './shared/components/checkbox/CheckBox';
+import Tags from './shared/components/tags/Tag';
+import './RunWorkflowForm.scss'
 
 const RunWorkflowForm = () => {
     const [selected, setSelected] = useState(false);

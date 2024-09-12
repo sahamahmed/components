@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Drawer as AntDrawer } from 'antd';
 import Tabs from '../tabs/Tabs';
-import './Drawer.scss';  
+import './Drawer.scss';
 import Button from '../button/Button';
+import RunWorkflowForm from '../../../RunWorkflowForm';
 
-const Drawer = ({ open, setOpen,footerButtons }) => {
+const Drawer = ({ open, setOpen, footerButtons }) => {
 
     const onClose = () => {
         setOpen(false);
@@ -19,7 +20,7 @@ const Drawer = ({ open, setOpen,footerButtons }) => {
                 onClose={onClose}
                 open={open}
                 key={'right'}
-                className="drawer" 
+                className="drawer"
 
                 footer={
                     <div className="drawer-footer">
@@ -33,9 +34,24 @@ const Drawer = ({ open, setOpen,footerButtons }) => {
                             ></Button>
                         ))}
                     </div>
-                } 
+                }
             >
-                <Tabs />
+                <Tabs items={
+                    [
+                        {
+                            key: '1',
+                            label: 'Form',
+                            children: <RunWorkflowForm />,
+                        },
+                        {
+                            key: '2',
+                            label: 'JSON',
+                            children: 'Content of Tab Pane 2',
+                        },
+                    ]}
+
+                    onChange={(key) => console.log(key)}
+                />
             </AntDrawer>
         </>
     );

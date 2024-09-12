@@ -1,22 +1,13 @@
-.workflow-list-container {
-  margin: 16px;
-}
-
-.workflow-header {
+.controls {
   display: flex;
-  gap: 8px;
+  justify-content: start;
+  gap: 12px;
   align-items: center;
 }
 
-.workflow-controls {
+.filters {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.workflow-filters {
-  display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   gap: 10px;
 }
