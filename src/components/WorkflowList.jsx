@@ -11,7 +11,7 @@ import { MoreOutlined } from '@ant-design/icons';
 import BarChartComponent from './shared/components/graph/Graph'
 import Dropdown from './shared/components/dropdown/Dropdown'
 import Drawer from './shared/components/drawer/Drawer'
-import { ReactComponent as RunIcon } from '../public/icons/play_circle_outline.svg';
+import { ReactComponent as RunIcon } from '../public/icons/play2.svg';
 import { ReactComponent as EditIcon } from '../public/icons/edit.svg';
 import { ReactComponent as InfoIcon } from '../public/icons/info.svg';
 import { ReactComponent as DeleteIcon } from '../public/icons/delete.svg';

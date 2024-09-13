@@ -11,7 +11,7 @@ function App() {
       <header style={{ display: "flex" }}>
         <Sidebar />
         <div style={{ marginLeft: "76px", width: "100%" }}>
-          {/* <WorkflowList /> */}
+          <WorkflowList />
           <ViewWorkFlow />
         </div>
       </header>
