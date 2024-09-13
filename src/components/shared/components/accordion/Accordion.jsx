@@ -1,51 +1,15 @@
 import React, { useState } from 'react';
 import { Collapse, theme } from 'antd';
 import './Accordion.scss';
+import Typography from '../typography/Typography';
 
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
-
-const itemsNest = [
-    {
-        key: '1',
-        label: 'This is panel nest panel',
-        children: <p>{text}</p>,
-    },
-];
-
-const getItems = (panelStyle) => [
-    {
-        key: '1',
-        label: 'This is panel header 1',
-        children: <Collapse defaultActiveKey="1" items={itemsNest} />,
-        style: panelStyle,
-    },
-    {
-        key: '2',
-        label: 'This is panel header 2',
-        children: <p>{text}</p>,
-        style: panelStyle,
-    },
-    {
-        key: '3',
-        label: 'This is panel header 3',
-        children: <p>{text}</p>,
-        style: panelStyle,
-    },
-];
-
-const Accordion = () => {
+const Accordion = ({ items, type = 'main' }) => {
     const { token } = theme.useToken();
-    const [activeKeys, setActiveKeys] = useState(['1']); // Manage active keys state
+    const [activeKey, setActiveKey] = useState(['0']);
 
-    const handleChange = (keys) => {
-        setActiveKeys(keys); // Update active keys state
+    const handleChange = (key) => {
+        setActiveKey(key);
     };
-
-    console.log(activeKeys)
 
     const panelStyle = {
         marginBottom: 24,
@@ -53,19 +17,63 @@ const Accordion = () => {
         border: '1px solid #D8E0E8',
         backgroundColor: '#ffffff',
         color: '#1C354F',
-        width: '60%',
+    };
+
+    const getAccordionContent = (item) => {
+        return (
+            <>
+                {item.children.map((child) => (
+                    <div key={child.name}>
+                        <div className="accordion-section">
+                            <Typography type="header">{child.name}</Typography>
+                            {child.content}
+                        </div>
+                        <br />
+                    </div>
+                ))}
+            </>
+        );
+    };
+
+
+    const getDynamicItems = (panelStyle, activeKey) => {
+        return items.map((item) => ({
+            key: item.key,
+            label: (
+                <>
+                    <div className="accordion-label">
+                        <div className='section-titles'>
+                            <Typography type={'section-header'}>{item.label}</Typography>
+                            {activeKey[0] === item.key && (
+                                <>
+                                    <Typography type={'section-header'}>{item.title}</Typography>
+                                </>
+                            )}
+                        </div>
+
+                        {activeKey[0] === item.key && (
+                            <Typography type={'helper-text'}>{item.created}</Typography>
+                        )}
+                    </div>
+                </>
+            ),
+            children: getAccordionContent(item), 
+            style: {
+                ...panelStyle,
+                width: type ==='main' ? activeKey[0] === item.key ? '100%' : '60%' : '100%'
+            },
+        }));
     };
 
     return (
         <Collapse
             ghost
             accordion
-            size='large'
+            size="large"
             bordered={false}
-            activeKey={activeKeys} // Controlled component
-            onChange={handleChange} // Handle change
+            activeKey={activeKey}
+            onChange={handleChange}
             expandIcon={({ isActive }) => {
-                console.log('isActive:', isActive); // Log isActive state
                 return isActive ? (
                     <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1.6665 1.33325L6.99984 6.66658L12.3332 1.33325" stroke="#0E263F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -79,7 +87,7 @@ const Accordion = () => {
             style={{
                 background: token.colorBgContainer,
             }}
-            items={getItems(panelStyle)}
+            items={getDynamicItems(panelStyle, activeKey)}
         />
     );
 };
