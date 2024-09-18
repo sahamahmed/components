@@ -24,15 +24,10 @@
   }
 
 .ant-drawer-body{
-  padding: 0 24px !important;
+  padding: 0 !important;
 }
 
-.drawer-footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 8px;
-}
+
 
 .ant-tabs-tab.ant-tabs-tab-active {
     .ant-tabs-tab-btn {
@@ -45,7 +40,3 @@
     background-color: $color-primary !important; 
   }
 
-.ant-drawer-footer {
-    padding: 16px 0 !important;
-    background-color: #F7F8FA;
-}
