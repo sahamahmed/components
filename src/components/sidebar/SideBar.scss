@@ -31,8 +31,17 @@
       line-height: 18px;
 
       &:hover {
-        background-color: #E1E5E9;
-        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      &.active {
+       svg {
+        background-color: #fff; 
+        box-shadow: 0px 4px 6px 0 rgba(0, 0, 0, 0.3);
+        color: #1C354F;
+        border-radius: 8px;
+        padding: 8px;
+       }
       }
 
       svg {

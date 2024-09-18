@@ -6,8 +6,13 @@
   }
 }
 
+.ant-drawer-content{
+    border-radius: 12px !important;
+}
+
 .ant-drawer-content-wrapper {
     width: 600px !important;
+    border-radius: 12px !important;
   }
 
 .ant-drawer-title {
@@ -25,9 +30,8 @@
 .drawer-footer {
     display: flex;
     justify-content: flex-end;
-    margin-top: 24px;
+    align-items: center;
     gap: 8px;
-    z-index: 0;
 }
 
 .ant-tabs-tab.ant-tabs-tab-active {
@@ -40,3 +44,8 @@
 .ant-tabs-ink-bar {
     background-color: $color-primary !important; 
   }
+
+.ant-drawer-footer {
+    padding: 16px 0 !important;
+    background-color: #F7F8FA;
+}

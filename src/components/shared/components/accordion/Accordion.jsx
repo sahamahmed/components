@@ -26,7 +26,7 @@ const Accordion = ({ items, type = 'main' }) => {
                     <div key={child.name}>
                         <div className="accordion-section">
                             <Typography type="header">{child.name}</Typography>
-                            {child.content}
+                            <div className='content'>{child.content}</div>
                         </div>
                         <br />
                     </div>

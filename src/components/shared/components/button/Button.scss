@@ -1,13 +1,12 @@
 @import "../../../styles/variables.scss";
 
 .btn {
-  min-width: 164px;
   min-height: 40px;
   height: auto;
   padding: 12px 20px;
   gap: 12px;
   border-radius: 32px;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;

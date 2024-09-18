@@ -1,10 +1,11 @@
 import React from 'react';
 import './SideBar.scss';
 import {ReactComponent as Logo} from '../../public/icons/logo192.png.svg';
+import { NavLink } from 'react-router-dom';
 
 const sidebarItems = [
   {
-    link: '/', text: 'New Workflow', icon: (
+    link: '/abc', text: 'New Workflow', icon: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10.8332 5.83329H9.1665V9.16663H5.83317V10.8333H9.1665V14.1666H10.8332V10.8333H14.1665V9.16663H10.8332V5.83329ZM9.99984 1.66663C5.39984 1.66663 1.6665 5.39996 1.6665 9.99996C1.6665 14.6 5.39984 18.3333 9.99984 18.3333C14.5998 18.3333 18.3332 14.6 18.3332 9.99996C18.3332 5.39996 14.5998 1.66663 9.99984 1.66663ZM9.99984 16.6666C6.32484 16.6666 3.33317 13.675 3.33317 9.99996C3.33317 6.32496 6.32484 3.33329 9.99984 3.33329C13.6748 3.33329 16.6665 6.32496 16.6665 9.99996C16.6665 13.675 13.6748 16.6666 9.99984 16.6666Z" fill="#0E263F" />
       </svg>
@@ -12,7 +13,7 @@ const sidebarItems = [
     )
   },
   {
-    link: '/', text: 'New Workflow (Template)', icon: (
+    link: '/def', text: 'New Workflow (Template)', icon: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10.8332 5.83329H9.1665V9.16663H5.83317V10.8333H9.1665V14.1666H10.8332V10.8333H14.1665V9.16663H10.8332V5.83329ZM9.99984 1.66663C5.39984 1.66663 1.6665 5.39996 1.6665 9.99996C1.6665 14.6 5.39984 18.3333 9.99984 18.3333C14.5998 18.3333 18.3332 14.6 18.3332 9.99996C18.3332 5.39996 14.5998 1.66663 9.99984 1.66663ZM9.99984 16.6666C6.32484 16.6666 3.33317 13.675 3.33317 9.99996C3.33317 6.32496 6.32484 3.33329 9.99984 3.33329C13.6748 3.33329 16.6665 6.32496 16.6665 9.99996C16.6665 13.675 13.6748 16.6666 9.99984 16.6666Z" fill="#0E263F" />
       </svg>
@@ -36,10 +37,16 @@ const Sidebar = () => (
         <Logo />
       </div>
       {sidebarItems.map((item, index) => (
-        <div key={index} className="sidebar-item">
+        <NavLink
+          key={index}
+          className={({ isActive }) =>
+            isActive ? "sidebar-item active" : "sidebar-item"
+          }
+          to={item.link}
+        >
           {item.icon}
           <span>{item.text}</span>
-        </div>
+        </NavLink>
       ))}
     </div>
     <div className="sidebar-bottom">

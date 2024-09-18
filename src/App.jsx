@@ -1,9 +1,5 @@
-import BarChartComponent from './components/shared/components/graph/Graph';
 import Sidebar from './components/sidebar/SideBar';
-import Test from './components/Testing';
-import ViewWorkFlow from './components/view/ViewWorkFlow';
-import WorkflowList from './components/WorkflowList';
-
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
@@ -11,8 +7,7 @@ function App() {
       <header style={{ display: "flex" }}>
         <Sidebar />
         <div style={{ marginLeft: "76px", width: "100%" }}>
-          <WorkflowList />
-          <ViewWorkFlow />
+          <Outlet />
         </div>
       </header>
     </div>
@@ -20,3 +15,5 @@ function App() {
 }
 
 export default App;
+
+
