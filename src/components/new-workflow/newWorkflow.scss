@@ -1,0 +1,88 @@
+.workflow-list-container {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  .workflow-body {
+    display: flex;
+    flex-grow: 1;
+    gap: 16px;
+  }
+
+  .workflow-sidebar {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 4px;
+    margin-bottom: 10px;
+  }
+
+  .workflow-node {
+      cursor: grab;
+  }
+
+  .workflow-main {
+    flex-grow: 1;
+    height: 100%; 
+    border-radius: 8px;
+    padding: 8px;
+  }
+}
+
+.workflow-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+
+.workflow-select-node {
+  display: flex;
+   justify-content: space-between;
+  align-items: center;
+}
+
+.select-node {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+}
+
+.dndflow {
+  display: flex;
+  gap: 16px;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.dndflow .dndnode {
+  height: 20px;
+  padding: 4px;
+  border: 1px solid #1a192b;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+}
+
+.dndflow .reactflow-wrapper {
+  flex-grow: 1;
+  height: 920px;
+  background-color: #F5FAFF;
+  border: 1px solid #D8E0E8;
+  border-radius: 12px;
+  padding: 12px;
+
+  a {
+    opacity: 0;
+  }
+}
+
+.dndflow .selectall {
+  margin-top: 10px;
+}
+

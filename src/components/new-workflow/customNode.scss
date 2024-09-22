@@ -1,0 +1,26 @@
+.main {
+    display: flex;
+    min-width: 240px;
+    padding: 12px;
+    gap: 0px;
+    border-radius: 10px;
+    border: 1px solid #D8E0E8;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    .title {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+    }
+
+    .icon {
+    margin-right: 12px;
+    background: #66B1FE;
+    border-radius: 10px;
+    padding: 6px 8px 6px 8px;
+    }
+}
+
