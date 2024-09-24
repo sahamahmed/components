@@ -16,6 +16,7 @@ import CustomNode from './customNode';
 import Button from '../shared/components/button/Button';
 import { ReactComponent as EditIcon } from '../../public/icons/edit.svg';
 import CustomControls from './customController';
+import NodeWrapper from './NodeWrapper';
 
 const initialNodes = [];
 
@@ -59,32 +60,32 @@ const DnDFlow = () => {
 
     const handleDeleteNode = (node) => {
         console.log(node);
-        setNodes(prev => prev.filter(n => n.title !== node.title));
+        setNodes(prev => prev.filter(n => n.data.title !== node.title));
     };
 
     const addNewNode = (event) => {
-        const position = screenToFlowPosition({ x: event.x || 500, y: event.y || 300});
+        const position = screenToFlowPosition({ x: event.x || 500, y: event.y || 300 });
         const newNode = {
             id: getId(),
             type: event.type,
             position,
-            data: event.data,
-            onDelete: (e) => { handleDeleteNode(e) }
+            data: { ...event.data, hasInput: true, onDelete: handleDeleteNode },
         };
         setNodes((nds) => nds.concat(newNode));
     };
+
 
     return (
         <div className="dndflow">
             <Sidebar 
                 onAddNode={e => {
-                    addNewNode({ type: 'selectorNode', data: {...e, isInflow: true }});
+                    addNewNode({ type: 'selectorNode', data: {...e, isInflow: true} });
                 }}
             />
 
             <div className="reactflow-wrapper" ref={reactFlowWrapper}>
                 <div className="workflow-header"  >
-                    <Typography type={'section-header'}>Logic Board - Company Workflow </Typography>
+                    <Typography type={'section-header'}> Logic Board - Company Workflow </Typography>
                     <EditIcon />
                 </div>
 
@@ -96,7 +97,7 @@ const DnDFlow = () => {
                     onConnect={onConnect}
                     onDrop={onDrop}
                     onDragOver={onDragOver}
-                    nodeTypes={{ selectorNode: CustomNode }}
+                    nodeTypes={{ selectorNode: NodeWrapper }}
                     connectionLineStyle={{ stroke: '#0E263F' }}
                 >
                     <CustomControls />
