@@ -5,6 +5,8 @@ import App from './App';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ViewWorkFlow from './components/view/ViewWorkFlow.jsx';
 import WorkflowList from './components/WorkflowList.jsx';
+import Login from './components/login/Login.jsx';
+import NewWorkflow from './components/new-workflow/NewWorkflow.jsx';
 
 
 const router = createBrowserRouter([
@@ -14,13 +16,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <WorkflowList />,
+        element: <NewWorkflow />,
       },
       {
         path: "/workflows/:id",
         element: <ViewWorkFlow />,
-      }
-      
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
     ],
   },
 ]);

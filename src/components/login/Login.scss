@@ -1,0 +1,116 @@
+.login-container {
+  background-image: url(../../public/Loginbg.png);
+  background-size: cover;
+  background-position: center;
+  background-color: #C9C6C6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    .header-text {
+        font-family: "Inter", sans-serif;
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 40px;
+        text-align: center;
+        color: #0E263F;
+    }
+}
+
+.login-form {
+  background-color: #ffffff;
+  padding: 2rem;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  text-align: center;
+
+  .logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #1E394A;
+  }
+
+  form {
+    .input-group {
+      margin-bottom: 1rem;
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #1E394A;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 1rem;
+        &:focus {
+          outline: none;
+          border-color: #0E263F;
+        }
+      }
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+
+      .remember-me {
+        display: flex;
+        align-items: center;
+
+        input {
+          margin-right: 0.5rem;
+        }
+
+        label {
+          font-size: 0.9rem;
+          color: #1E394A;
+        }
+      }
+
+      .forgot-password {
+        font-size: 0.9rem;
+        color: #0E263F;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #0E263F;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      &:hover {
+        background-color: #1E394A;
+      }
+    }
+  }
+}

@@ -5,15 +5,14 @@ import {
     addEdge,
     useNodesState,
     useEdgesState,
-    Controls,
     useReactFlow,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import Sidebar from './Sidebar';
 import { DnDProvider, useDnD } from './DnDContext'; 
-import Typography from '../shared/components/typography/Typography'
-import './newWorkflow.scss'
-import CustomNode from './customNode'
+import Typography from '../shared/components/typography/Typography';
+import './newWorkflow.scss';
+import CustomNode from './customNode';
 import Button from '../shared/components/button/Button';
 import { ReactComponent as EditIcon } from '../../public/icons/edit.svg';
 import CustomControls from './customController';
@@ -31,8 +30,11 @@ const DnDFlow = () => {
     const [type] = useDnD();
 
     const onConnect = useCallback(
-        (params) => setEdges((eds) => addEdge({ ...params, type: "step" }, eds)),
-        [],
+        (params) => {
+            console.log('connection', params)
+            setEdges((eds) => addEdge({ ...params, type: "step" }, eds))
+        },
+        []
     );
 
     const onDragOver = useCallback((event) => {
@@ -41,34 +43,44 @@ const DnDFlow = () => {
     }, []);
 
     const onDrop = useCallback(
-        (event) => {
+        (event) => { 
             event.preventDefault();
 
             if (!type) { 
                 return;
             }
-
-            const position = screenToFlowPosition({
-                x: event.clientX,
-                y: event.clientY,
-            });
-
-            const newNode = {
-                id: getId(),
+            addNewNode({
+                x: event.clientX, y: event.clientY,
                 type: 'selectorNode',
-                position,
-                data: { icon: type.icon, title: type.title, isInflow: true, children: type.children }, 
-            };
-
-            setNodes((nds) => nds.concat(newNode));
+                data: { ...type, isInflow: true }, });
         },
         [screenToFlowPosition, type], 
     );
 
+    const handleDeleteNode = (node) => {
+        console.log(node);
+        setNodes(prev => prev.filter(n => n.title !== node.title));
+    };
+
+    const addNewNode = (event) => {
+        const position = screenToFlowPosition({ x: event.x || 500, y: event.y || 300});
+        const newNode = {
+            id: getId(),
+            type: event.type,
+            position,
+            data: event.data,
+            onDelete: (e) => { handleDeleteNode(e) }
+        };
+        setNodes((nds) => nds.concat(newNode));
+    };
 
     return (
         <div className="dndflow">
-            <Sidebar />
+            <Sidebar 
+                onAddNode={e => {
+                    addNewNode({ type: 'selectorNode', data: {...e, isInflow: true }});
+                }}
+            />
 
             <div className="reactflow-wrapper" ref={reactFlowWrapper}>
                 <div className="workflow-header"  >
@@ -94,7 +106,7 @@ const DnDFlow = () => {
     );
 };
 
-const NewWorkflow = () => {
+const NewWorkflow = () => {  
     return (
         <div className='workflow-list-container'>
             <div className="workflow-header">

@@ -3,9 +3,8 @@ import { Drawer as AntDrawer } from 'antd';
 import Tabs from '../tabs/Tabs';
 import './Drawer.scss';
 import Button from '../button/Button';
-import RunWorkflowForm from '../../../RunWorkflowForm';
 
-const Drawer = ({ open, setOpen, footerButtons }) => {
+const Drawer = ({ open, setOpen, title, children }) => {
 
     const onClose = () => {
         setOpen(false);
@@ -14,7 +13,7 @@ const Drawer = ({ open, setOpen, footerButtons }) => {
     return (
         <>
             <AntDrawer
-                title="Run Workflow"
+                title={title}
                 placement={'right'}
                 closable={false}
                 onClose={onClose}
@@ -22,7 +21,7 @@ const Drawer = ({ open, setOpen, footerButtons }) => {
                 key={'right'}
                 className="drawer"
             >
-                <RunWorkflowForm />
+                {children}
             </AntDrawer>
         </>
     );

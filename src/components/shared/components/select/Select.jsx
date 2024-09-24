@@ -11,7 +11,6 @@ const Select = ({
     type = 'single'
 }) => {
     const [selectedValue, setSelectedValue] = useState(type === 'single' ? defaultValue : []);
-    console.log(selectedValue)
 
     const handleSelect = (value, label) => {
         if (type === 'single') {

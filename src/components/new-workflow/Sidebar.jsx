@@ -1,42 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDnD } from './DnDContext';
-import Typography from '../shared/components/typography/Typography'
-import Select from '../shared/components/select/Select'
-import { ReactComponent as Icon } from '../../public/icons/sphere.svg'
+import Typography from '../shared/components/typography/Typography';
+import Select from '../shared/components/select/Select';
+import { ReactComponent as Icon } from '../../public/icons/sphere.svg';
 import CustomNode from './customNode';
-import './newWorkflow.scss'
-import Dropdown from '../shared/components/dropdown/Dropdown';
-import { ReactComponent as EditIcon } from '../../public/icons/edit.svg';
-import { ReactComponent as DeleteIcon } from '../../public/icons/delete.svg';
-import { MoreOutlined } from '@ant-design/icons';
+import './newWorkflow.scss';
 
-const nodes = [
+const nodesArr = [
     { icon: <Icon />, title: 'Website Search Robot' },
-    { icon: <Icon />, title: 'Scraper' },
-    { icon: <Icon />, title: 'Map' },
-    { icon: <Icon />, title: 'Sequence' },
-    {
-        icon: <Icon />, 
-        title: 'Google', 
-        children: <Dropdown menuItems={
-            [
-                { label: 'Edit Data', icon: EditIcon, onClick: () => console.log('Edit Workflow clicked') },
-                { label: 'Delete Node', icon: DeleteIcon, onClick: () => console.log('Delete Workflow clicked') },
-            ]}>
-            <MoreOutlined className='action-icon' />
-        </Dropdown>
-    },
-    { icon: <Icon />, title: 'Concat' },
-    { icon: <Icon />, title: 'Filter' },
-    { icon: <Icon />, title: 'Batch' }
+    { icon: <Icon />, title: 'Scraper', hasInput: true },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ onAddNode, onDelete }) => {
     const [_, setType] = useDnD();
+    const [hoveredNode, setHoveredNode] = useState(null);
 
     const onDragStart = (event, node) => {
         setType(node);
         event.dataTransfer.effectAllowed = 'move';
+    };
+
+    const handleMouseEnter = (index) => {
+        setHoveredNode(index);
+    };
+
+    const handleMouseLeave = () => {
+        setHoveredNode(null);
+    };
+
+    const handleAddNode = (node) => {
+        setType(node);
+        if (onAddNode) {
+            onAddNode(node);
+        }
+    };
+
+    const handleDeleteNode = (node) => {
+        if (onDelete) {
+            onDelete(node);
+        }
     };
 
     return (
@@ -54,14 +56,16 @@ const Sidebar = () => {
                     <Select type="single" defaultValue={{ value: "", label: "Type" }} />
                 </div>
 
-                {nodes.map((node, index) => (
+                {nodesArr.map((node, index) => (
                     <div
                         className="workflow-node"
                         key={index}
                         onDragStart={(event) => onDragStart(event, node)}
                         draggable
+                        onMouseEnter={() => handleMouseEnter(index)}
+                        onMouseLeave={handleMouseLeave}
                     >
-                        <CustomNode data={node} />
+                        <CustomNode data={node} index={index} hoveredNode={hoveredNode} handleAddNode={handleAddNode} onDelete={handleDeleteNode} />
                     </div>
                 ))}
             </div>
