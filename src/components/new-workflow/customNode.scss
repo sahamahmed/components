@@ -18,10 +18,22 @@
     }
 
     .icon {
-    margin-right: 12px;
-    background: #66B1FE;
-    border-radius: 10px;
-    padding: 6px 8px 6px 8px;
+        margin-right: 12px;
+        background: #66B1FE;
+        border-radius: 10px;
+        padding: 6px 8px 6px 8px;
+        &.Processing {
+            background-color: #ADD8E6;
+        }
+        &.datainput {
+            background-color: #64E6A5;
+        }
+        &.functional {
+            background-color: #FC9A76;
+        }
+        &.workflow {
+            background-color: #C36FE5;
+        }
     }
 
     .add-node-icon {

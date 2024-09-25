@@ -37,7 +37,7 @@
         "AccumulateOnceNode"
       ],
       "additionalProperties": false,
-      "icon": "add_box",
+      "icon": "fa fa-square-plus",
       "class": "Processing"
     },
     {
@@ -71,7 +71,7 @@
         "SequenceNode"
       ],
       "additionalProperties": false,
-      "icon": "linear_scale",
+      "icon": "fa fa-arrow-down-1-9",
       "class": "Processing"
     },
     {
@@ -105,7 +105,7 @@
         "BingNode"
       ],
       "additionalProperties": false,
-      "icon": "search",
+      "icon": "fa fa-magnifying-glass",
       "class": "DataInput"
     },
     {
@@ -143,7 +143,7 @@
         "ScraperNode"
       ],
       "additionalProperties": false,
-      "icon": "cloud_download",
+      "icon": "fa fa-cloud-arrow-down",
       "class": "DataInput"
     },
     {
@@ -181,7 +181,7 @@
         "MapNode"
       ],
       "additionalProperties": false,
-      "icon": "filter_alt",
+      "icon": "fa fa-solid fa fa-mask",
       "class": "Functional"
     },
     {
@@ -219,7 +219,7 @@
         "FilterNode"
       ],
       "additionalProperties": false,
-      "icon": "filter_list",
+      "icon": "fa fa-filter",
       "class": "Functional"
     },
     {
@@ -260,7 +260,7 @@
         "CartesianNode"
       ],
       "additionalProperties": false,
-      "icon": "layers",
+      "icon": "fa fa-layer-group",
       "class": "Processing"
     },
     {
@@ -301,7 +301,7 @@
         "ConcatNode"
       ],
       "additionalProperties": false,
-      "icon": "link",
+      "icon": "fa fa-link",
       "class": "Processing"
     },
     {
@@ -339,7 +339,7 @@
         "LimitNode"
       ],
       "additionalProperties": false,
-      "icon": "compress",
+      "icon": "fa fa-compress",
       "class": "Processing"
     },
     {
@@ -373,7 +373,7 @@
         "WorkflowExecutorNode"
       ],
       "additionalProperties": false,
-      "icon": "auto_awesome_motion",
+      "icon": "fa fa-microchip",
       "class": "Workflow"
     },
     {
@@ -407,7 +407,7 @@
         "ConstantNode"
       ],
       "additionalProperties": false,
-      "icon": "looks_one",
+      "icon": "fa fa-crosshairs",
       "class": "DataInput"
     },
     {
@@ -445,7 +445,7 @@
         "ScoringNode"
       ],
       "additionalProperties": false,
-      "icon": "star_rate",
+      "icon": "fa fa-star",
       "class": "Functional"
     },
     {
@@ -486,7 +486,7 @@
         "AccumulateNode"
       ],
       "additionalProperties": false,
-      "icon": "collections",
+      "icon": "fa fa-object-group",
       "class": "Processing"
     },
     {
@@ -524,7 +524,7 @@
         "ForEachNode"
       ],
       "additionalProperties": false,
-      "icon": "repeat",
+      "icon": "fa fa-repeat",
       "class": "Processing"
     },
     {
@@ -562,7 +562,7 @@
         "PassThroughNode"
       ],
       "additionalProperties": false,
-      "icon": "arrow_forward",
+      "icon": "fa fa-right-long",
       "class": "Processing"
     },
     {
@@ -600,7 +600,7 @@
         "DeduplicateNode"
       ],
       "additionalProperties": false,
-      "icon": "filter_none",
+      "icon": "fa fa-clone",
       "class": "Processing"
     },
     {
@@ -634,7 +634,7 @@
         "ConstantSequenceNode"
       ],
       "additionalProperties": false,
-      "icon": "looks",
+      "icon": "fa fa-list-ol",
       "class": "Processing"
     },
     {
@@ -674,7 +674,7 @@
         "PDLNode"
       ],
       "additionalProperties": false,
-      "icon": "find_in_page",
+      "icon": "fa fa-binoculars",
       "class": "DataInput"
     },
     {
@@ -715,7 +715,7 @@
         "MatchNode"
       ],
       "additionalProperties": false,
-      "icon": "rule",
+      "icon": "fa fa-code-compare",
       "class": "Processing"
     },
     {
@@ -753,7 +753,7 @@
         "ScoringFilterNode"
       ],
       "additionalProperties": false,
-      "icon": "filter_list_alt",
+      "icon": "fa fa-sliders",
       "class": "Functional"
     },
     {
@@ -791,7 +791,7 @@
         "GroupedScoringFilterNode"
       ],
       "additionalProperties": false,
-      "icon": "merge_type",
+      "icon": "fa fa-code-merge",
       "class": "Functional"
     },
     {
@@ -829,7 +829,7 @@
         "SplitNode"
       ],
       "additionalProperties": false,
-      "icon": "call_split",
+      "icon": "fa fa-arrows-split-up-and-left",
       "class": "Processing"
     },
     {
@@ -863,7 +863,7 @@
         "GoogleNode"
       ],
       "additionalProperties": false,
-      "icon": "search",
+      "icon": "fab fa-google",
       "class": "DataInput"
     },
     {
@@ -897,7 +897,7 @@
         "WebsiteSearchingRobotNode"
       ],
       "additionalProperties": false,
-      "icon": "public",
+      "icon": "fab fa-searchengin",
       "class": "DataInput"
     },
     {
@@ -935,7 +935,7 @@
         "EvaluationNode"
       ],
       "additionalProperties": false,
-      "icon": "rate_review",
+      "icon": "fa fa-star-half-stroke",
       "class": "Functional"
     },
     {
@@ -973,8 +973,46 @@
         "ExtractNode"
       ],
       "additionalProperties": false,
-      "icon": "content_cut",
+      "icon": "fa fa-file-export",
       "class": "Processing"
+    },
+    {
+      "title": "MicroSite Upload Node",
+      "description": "A node that creates a microsite",
+      "type": "object",
+      "properties": {
+        "MicroSiteUploadNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_MicroSiteUploadNodeArguments_and_MicroSiteUploadNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "MicroSiteUploadNode"
+      ],
+      "additionalProperties": false,
+      "icon": "fa fa-solid fa fa-mask",
+      "class": "Functional"
     }
   ],
   "$defs": {
@@ -1687,7 +1725,7 @@
             "AccumulateOnceNode"
           ],
           "additionalProperties": false,
-          "icon": "add_box",
+          "icon": "fa fa-square-plus",
           "class": "Processing"
         },
         {
@@ -1721,7 +1759,7 @@
             "SequenceNode"
           ],
           "additionalProperties": false,
-          "icon": "linear_scale",
+          "icon": "fa fa-arrow-down-1-9",
           "class": "Processing"
         },
         {
@@ -1755,7 +1793,7 @@
             "BingNode"
           ],
           "additionalProperties": false,
-          "icon": "search",
+          "icon": "fa fa-magnifying-glass",
           "class": "DataInput"
         },
         {
@@ -1793,7 +1831,7 @@
             "ScraperNode"
           ],
           "additionalProperties": false,
-          "icon": "cloud_download",
+          "icon": "fa fa-cloud-arrow-down",
           "class": "DataInput"
         },
         {
@@ -1831,7 +1869,7 @@
             "MapNode"
           ],
           "additionalProperties": false,
-          "icon": "filter_alt",
+          "icon": "fa fa-solid fa fa-mask",
           "class": "Functional"
         },
         {
@@ -1869,7 +1907,7 @@
             "FilterNode"
           ],
           "additionalProperties": false,
-          "icon": "filter_list",
+          "icon": "fa fa-filter",
           "class": "Functional"
         },
         {
@@ -1910,7 +1948,7 @@
             "CartesianNode"
           ],
           "additionalProperties": false,
-          "icon": "layers",
+          "icon": "fa fa-layer-group",
           "class": "Processing"
         },
         {
@@ -1951,7 +1989,7 @@
             "ConcatNode"
           ],
           "additionalProperties": false,
-          "icon": "link",
+          "icon": "fa fa-link",
           "class": "Processing"
         },
         {
@@ -1989,7 +2027,7 @@
             "LimitNode"
           ],
           "additionalProperties": false,
-          "icon": "compress",
+          "icon": "fa fa-compress",
           "class": "Processing"
         },
         {
@@ -2023,7 +2061,7 @@
             "WorkflowExecutorNode"
           ],
           "additionalProperties": false,
-          "icon": "auto_awesome_motion",
+          "icon": "fa fa-microchip",
           "class": "Workflow"
         },
         {
@@ -2057,7 +2095,7 @@
             "ConstantNode"
           ],
           "additionalProperties": false,
-          "icon": "looks_one",
+          "icon": "fa fa-crosshairs",
           "class": "DataInput"
         },
         {
@@ -2095,7 +2133,7 @@
             "ScoringNode"
           ],
           "additionalProperties": false,
-          "icon": "star_rate",
+          "icon": "fa fa-star",
           "class": "Functional"
         },
         {
@@ -2136,7 +2174,7 @@
             "AccumulateNode"
           ],
           "additionalProperties": false,
-          "icon": "collections",
+          "icon": "fa fa-object-group",
           "class": "Processing"
         },
         {
@@ -2174,7 +2212,7 @@
             "ForEachNode"
           ],
           "additionalProperties": false,
-          "icon": "repeat",
+          "icon": "fa fa-repeat",
           "class": "Processing"
         },
         {
@@ -2212,7 +2250,7 @@
             "PassThroughNode"
           ],
           "additionalProperties": false,
-          "icon": "arrow_forward",
+          "icon": "fa fa-right-long",
           "class": "Processing"
         },
         {
@@ -2250,7 +2288,7 @@
             "DeduplicateNode"
           ],
           "additionalProperties": false,
-          "icon": "filter_none",
+          "icon": "fa fa-clone",
           "class": "Processing"
         },
         {
@@ -2284,7 +2322,7 @@
             "ConstantSequenceNode"
           ],
           "additionalProperties": false,
-          "icon": "looks",
+          "icon": "fa fa-list-ol",
           "class": "Processing"
         },
         {
@@ -2324,7 +2362,7 @@
             "PDLNode"
           ],
           "additionalProperties": false,
-          "icon": "find_in_page",
+          "icon": "fa fa-binoculars",
           "class": "DataInput"
         },
         {
@@ -2365,7 +2403,7 @@
             "MatchNode"
           ],
           "additionalProperties": false,
-          "icon": "rule",
+          "icon": "fa fa-code-compare",
           "class": "Processing"
         },
         {
@@ -2403,7 +2441,7 @@
             "ScoringFilterNode"
           ],
           "additionalProperties": false,
-          "icon": "filter_list_alt",
+          "icon": "fa fa-sliders",
           "class": "Functional"
         },
         {
@@ -2441,7 +2479,7 @@
             "GroupedScoringFilterNode"
           ],
           "additionalProperties": false,
-          "icon": "merge_type",
+          "icon": "fa fa-code-merge",
           "class": "Functional"
         },
         {
@@ -2479,7 +2517,7 @@
             "SplitNode"
           ],
           "additionalProperties": false,
-          "icon": "call_split",
+          "icon": "fa fa-arrows-split-up-and-left",
           "class": "Processing"
         },
         {
@@ -2513,7 +2551,7 @@
             "GoogleNode"
           ],
           "additionalProperties": false,
-          "icon": "search",
+          "icon": "fab fa-google",
           "class": "DataInput"
         },
         {
@@ -2547,7 +2585,7 @@
             "WebsiteSearchingRobotNode"
           ],
           "additionalProperties": false,
-          "icon": "public",
+          "icon": "fab fa-searchengin",
           "class": "DataInput"
         },
         {
@@ -2585,7 +2623,7 @@
             "EvaluationNode"
           ],
           "additionalProperties": false,
-          "icon": "rate_review",
+          "icon": "fa fa-star-half-stroke",
           "class": "Functional"
         },
         {
@@ -2623,8 +2661,46 @@
             "ExtractNode"
           ],
           "additionalProperties": false,
-          "icon": "content_cut",
+          "icon": "fa fa-file-export",
           "class": "Processing"
+        },
+        {
+          "title": "MicroSite Upload Node",
+          "description": "A node that creates a microsite",
+          "type": "object",
+          "properties": {
+            "MicroSiteUploadNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_MicroSiteUploadNodeArguments_and_MicroSiteUploadNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "MicroSiteUploadNode"
+          ],
+          "additionalProperties": false,
+          "icon": "fa fa-solid fa fa-mask",
+          "class": "Functional"
         }
       ]
     },
@@ -3060,19 +3136,23 @@
           "description": "Current job title of the contact.",
           "type": "string"
         },
-        "buyingRole": {
-          "description": "Role in buying process, such as Exec buyer, Financial buyer, or Champion.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
         "contactId": {
           "description": "id of the contact",
           "type": [
             "string",
             "null"
           ]
+        },
+        "reasoning": {
+          "description": "Why this person is a good match.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "Full name of the contact within the prospect or seller's company.",
+          "type": "string"
         },
         "currentEmployer": {
           "description": "Current employer of the contact.",
@@ -3085,24 +3165,6 @@
             "null"
           ]
         },
-        "linkedinLastSeen": {
-          "description": "The date that this entity was last associated with the Person record.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "linkedInUrl": {
-          "description": "LinkedIn profile URL of the contact.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "name": {
-          "description": "Full name of the contact within the prospect or seller's company.",
-          "type": "string"
-        },
         "phoneNumbers": {
           "description": "Mobile phone number associated with the user.",
           "type": [
@@ -3112,6 +3174,20 @@
           "items": {
             "type": "string"
           }
+        },
+        "linkedInUrl": {
+          "description": "LinkedIn profile URL of the contact.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "linkedinLastSeen": {
+          "description": "The date that this entity was last associated with the Person record.",
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "previousEmployer": {
           "description": "Previous employer of the contact.",
@@ -3127,6 +3203,21 @@
             "null"
           ]
         },
+        "tenureInMonths": {
+          "description": "The tenure in months.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int32"
+        },
+        "buyingRole": {
+          "description": "Role in buying process, such as Exec buyer, Financial buyer, or Champion.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "score": {
           "description": "Score between 1 and 10 of this person match.",
           "type": [
@@ -3135,33 +3226,18 @@
           ],
           "format": "int32"
         },
-        "reasoning": {
-          "description": "Why this person is a good match.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
         "region": {
           "description": "Contact geographic location.",
           "type": [
             "string",
             "null"
           ]
-        },
-        "tenureInMonths": {
-          "description": "The tenure in months.",
-          "type": [
-            "integer",
-            "null"
-          ],
-          "format": "int32"
         }
       },
       "required": [
-        "currentEmployer",
         "name",
-        "title"
+        "title",
+        "currentEmployer"
       ]
     },
     "ScrapedWebsite": {
@@ -5185,6 +5261,73 @@
         "PersonaGroup",
         "CompanyProfile",
         "Url"
+      ]
+    },
+    "NodeInit_for_MicroSiteUploadNodeArguments_and_MicroSiteUploadNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/MicroSiteUploadNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "MicroSiteUploadNodeArguments": {
+      "type": "object",
+      "properties": {
+        "gs_template_source": {
+          "$ref": "#/$defs/GCSObject"
+        },
+        "gs_base_url": {
+          "type": "string"
+        },
+        "site_guidelines": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gs_template_source",
+        "gs_base_url",
+        "site_guidelines"
+      ]
+    },
+    "GCSObject": {
+      "type": "object",
+      "properties": {
+        "bucket": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "bucket",
+        "name"
       ]
     }
   }

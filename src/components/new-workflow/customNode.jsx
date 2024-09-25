@@ -1,19 +1,18 @@
 import React, { memo } from 'react';
-import { Handle } from '@xyflow/react';
 import { PlusOutlined } from '@ant-design/icons';
 
+import './customNode.scss';
 
-const CustomNode = memo(({ data, index, hoveredNode, handleAddNode , children}) => {
-    const {icon, title, isInflow} = data;
-
-
+const CustomNode = memo(({ data, index, hoveredNode, handleAddNode, children}) => {
+    const {icon, title, isInflow, class: iconClass} = data;
+    
     return (
         <>
             <div className='main'>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <div className='icon'>
-                        {icon}
-                    </div>
+                    <span className={`icon ${iconClass || ''}`}>
+                        {icon && <i className={`fa ${icon}`}></i>}
+                    </span>
                     <div className='title'>
                         <strong>{title}</strong>
                     </div>
@@ -31,8 +30,6 @@ const CustomNode = memo(({ data, index, hoveredNode, handleAddNode , children}) 
                     </div>
                 )}
             </div>
-                
-           
         </>
     );
 });

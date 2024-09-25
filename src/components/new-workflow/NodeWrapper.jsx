@@ -58,13 +58,14 @@ const NodeWrapper = ({ data}) => {
 
       </CustomNode>
 
-          {drawerOpen && <Drawer
-              open={drawerOpen}
-              setOpen={setDrawerOpen}
-              title={'Edit Data'}
-          >
-              <EditDataForm onCancel={() => setDrawerOpen(false)} onSubmit={onSubmit} />
-          </Drawer>
+          {
+            drawerOpen && <Drawer
+                open={drawerOpen}
+                setOpen={setDrawerOpen}
+                title={'Edit Data'}
+            >
+                <EditDataForm onCancel={() => setDrawerOpen(false)} onSubmit={onSubmit} />
+            </Drawer>
           }
     </>
   )
