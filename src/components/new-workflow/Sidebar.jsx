@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-import { useDnD } from './DnDContext';
-import Typography from '../shared/components/typography/Typography';
-import Select from '../shared/components/select/Select';
-import { ReactComponent as Icon } from '../../public/icons/sphere.svg';
-import CustomNode from './customNode';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import './newWorkflow.scss';
 
-const nodesArr = [
-    { icon: <Icon />, title: 'Website Search Robot' },
-    { icon: <Icon />, title: 'Scraper', hasInput: true },
-];
+import { useDnD } from './DnDContext';
+
+import CustomNode from './customNode';
+import Select from '../shared/components/select/Select';
+import Typography from '../shared/components/typography/Typography';
+
+import schema from '../../schemas/NodeDefinition_schema.json';
+
+const NodeList = (schema?.oneOf || []).map(s => {
+    return {
+        ...s,
+        isInflow: false,
+        icon: <FontAwesomeIcon icon={s.icon} />
+    };
+});
 
 const Sidebar = ({ onAddNode, onDelete }) => {
     const [_, setType] = useDnD();
@@ -56,7 +64,7 @@ const Sidebar = ({ onAddNode, onDelete }) => {
                     <Select type="single" defaultValue={{ value: "", label: "Type" }} />
                 </div>
 
-                {nodesArr.map((node, index) => (
+                {NodeList.map((node, index) => (
                     <div
                         className="workflow-node"
                         key={index}

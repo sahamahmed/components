@@ -1,0 +1,5191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NodeDefinition",
+  "oneOf": [
+    {
+      "title": "Batch Node",
+      "description": "A node that accumulates n values and produces them once",
+      "type": "object",
+      "properties": {
+        "AccumulateOnceNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_AccumulateOnceArguments_and_AccumulateOnceNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "AccumulateOnceNode"
+      ],
+      "additionalProperties": false,
+      "icon": "add_box",
+      "class": "Processing"
+    },
+    {
+      "title": "Sequence Node",
+      "description": "A node that processes elements in a sequence.",
+      "type": "object",
+      "properties": {
+        "SequenceNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_SequenceNodeArguments_and_SequenceNodeState"
+            }
+          },
+          "required": [
+            "name",
+            "init"
+          ]
+        }
+      },
+      "required": [
+        "SequenceNode"
+      ],
+      "additionalProperties": false,
+      "icon": "linear_scale",
+      "class": "Processing"
+    },
+    {
+      "title": "Bing Node",
+      "description": "A node specifically designed for Bing search parameters and states.",
+      "type": "object",
+      "properties": {
+        "BingNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_BingParameters_and_BingState"
+            }
+          },
+          "required": [
+            "name",
+            "init"
+          ]
+        }
+      },
+      "required": [
+        "BingNode"
+      ],
+      "additionalProperties": false,
+      "icon": "search",
+      "class": "DataInput"
+    },
+    {
+      "title": "Scraper Node",
+      "description": "A node that scrapes data based on provided arguments and maintains state.",
+      "type": "object",
+      "properties": {
+        "ScraperNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_ScraperNodeArguments_and_ScraperNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "ScraperNode"
+      ],
+      "additionalProperties": false,
+      "icon": "cloud_download",
+      "class": "DataInput"
+    },
+    {
+      "title": "Map Node",
+      "description": "A node that applies a mapping function to the input data.",
+      "type": "object",
+      "properties": {
+        "MapNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_MapNodeArguments_and_MapNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "MapNode"
+      ],
+      "additionalProperties": false,
+      "icon": "filter_alt",
+      "class": "Functional"
+    },
+    {
+      "title": "Filter Node",
+      "description": "A node that filters input data based on specified arguments and conditions.",
+      "type": "object",
+      "properties": {
+        "FilterNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_FilterNodeArguments_and_FilterNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "FilterNode"
+      ],
+      "additionalProperties": false,
+      "icon": "filter_list",
+      "class": "Functional"
+    },
+    {
+      "title": "Cartesian Node",
+      "description": "A node that combines multiple inputs into a Cartesian product.",
+      "type": "object",
+      "properties": {
+        "CartesianNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_CartesianNodeArguments_and_CartesianNodeState"
+            },
+            "inputs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "inputs"
+          ]
+        }
+      },
+      "required": [
+        "CartesianNode"
+      ],
+      "additionalProperties": false,
+      "icon": "layers",
+      "class": "Processing"
+    },
+    {
+      "title": "Concat Node",
+      "description": "A node that concatenates multiple input streams into a single output.",
+      "type": "object",
+      "properties": {
+        "ConcatNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_ConcatNodeArguments_and_ConcatNodeState"
+            },
+            "inputs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "inputs"
+          ]
+        }
+      },
+      "required": [
+        "ConcatNode"
+      ],
+      "additionalProperties": false,
+      "icon": "link",
+      "class": "Processing"
+    },
+    {
+      "title": "Limit Node",
+      "description": "A node that limits the amount of data processed or passed through.",
+      "type": "object",
+      "properties": {
+        "LimitNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_LimitNodeArguments_and_LimitNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "LimitNode"
+      ],
+      "additionalProperties": false,
+      "icon": "compress",
+      "class": "Processing"
+    },
+    {
+      "title": "Workflow Executor Node",
+      "description": "A node responsible for orchestrating and executing a series of workflow steps based on its configuration.",
+      "type": "object",
+      "properties": {
+        "WorkflowExecutorNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_WorkflowExecutorNodeArguments_and_WorkflowExecutorNodeState"
+            }
+          },
+          "required": [
+            "name",
+            "init"
+          ]
+        }
+      },
+      "required": [
+        "WorkflowExecutorNode"
+      ],
+      "additionalProperties": false,
+      "icon": "auto_awesome_motion",
+      "class": "Workflow"
+    },
+    {
+      "title": "Constant Node",
+      "description": "A node that outputs a constant value. The value is defined during the initialization and remains unchanged.",
+      "type": "object",
+      "properties": {
+        "ConstantNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_ConstantNodeArguments_and_ConstantNodeState"
+            }
+          },
+          "required": [
+            "name",
+            "init"
+          ]
+        }
+      },
+      "required": [
+        "ConstantNode"
+      ],
+      "additionalProperties": false,
+      "icon": "looks_one",
+      "class": "DataInput"
+    },
+    {
+      "title": "Scoring Node",
+      "description": "A node that applies a scoring algorithm to input data to evaluate or rate it based on defined metrics.",
+      "type": "object",
+      "properties": {
+        "ScoringNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_ScoringNodeArguments_and_ScoringNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "ScoringNode"
+      ],
+      "additionalProperties": false,
+      "icon": "star_rate",
+      "class": "Functional"
+    },
+    {
+      "title": "Accumulate Node",
+      "description": "A node that accumulates all values from all streams.",
+      "type": "object",
+      "properties": {
+        "AccumulateNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_AccumulateNodeArguments_and_AccumulateNodeState"
+            },
+            "inputs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "inputs"
+          ]
+        }
+      },
+      "required": [
+        "AccumulateNode"
+      ],
+      "additionalProperties": false,
+      "icon": "collections",
+      "class": "Processing"
+    },
+    {
+      "title": "ForEach Node",
+      "description": "A node that applies a mapping function to the input data.",
+      "type": "object",
+      "properties": {
+        "ForEachNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_ForEachNodeArguments_and_ForEachNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "ForEachNode"
+      ],
+      "additionalProperties": false,
+      "icon": "repeat",
+      "class": "Processing"
+    },
+    {
+      "title": "Passthrough Node",
+      "description": "A node that just passes the values from input.",
+      "type": "object",
+      "properties": {
+        "PassThroughNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_PassThroughNodeArguments_and_PassThroughNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "PassThroughNode"
+      ],
+      "additionalProperties": false,
+      "icon": "arrow_forward",
+      "class": "Processing"
+    },
+    {
+      "title": "Deduplicate Node",
+      "description": "A node that deduplicates data that goes through it using simple text similarity.",
+      "type": "object",
+      "properties": {
+        "DeduplicateNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_DeduplicateNodeArguments_and_DeduplicateNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "DeduplicateNode"
+      ],
+      "additionalProperties": false,
+      "icon": "filter_none",
+      "class": "Processing"
+    },
+    {
+      "title": "ConstantSequence Node",
+      "description": "A node that outputs a constant value sequence. The values are defined during the initialization and remain unchanged.",
+      "type": "object",
+      "properties": {
+        "ConstantSequenceNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_ConstantSequenceNodeArguments_and_ConstantSequenceNodeState"
+            }
+          },
+          "required": [
+            "name",
+            "init"
+          ]
+        }
+      },
+      "required": [
+        "ConstantSequenceNode"
+      ],
+      "additionalProperties": false,
+      "icon": "looks",
+      "class": "Processing"
+    },
+    {
+      "title": "PDL Node",
+      "description": "A node specifically designed for PDL search parameters and states.",
+      "type": "object",
+      "properties": {
+        "PDLNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_PDLNodeArguments_and_PDLNodeState"
+            },
+            "input": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "init"
+          ]
+        }
+      },
+      "required": [
+        "PDLNode"
+      ],
+      "additionalProperties": false,
+      "icon": "find_in_page",
+      "class": "DataInput"
+    },
+    {
+      "title": "MatchNode",
+      "description": "A node specifically designed for PDL search parameters and states.",
+      "type": "object",
+      "properties": {
+        "MatchNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_MatchNodeArguments_and_MatchNodeState"
+            },
+            "inputs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "inputs"
+          ]
+        }
+      },
+      "required": [
+        "MatchNode"
+      ],
+      "additionalProperties": false,
+      "icon": "rule",
+      "class": "Processing"
+    },
+    {
+      "title": "Score Filter Node",
+      "description": "A node that filters scored input data based on specified arguments and conditions.",
+      "type": "object",
+      "properties": {
+        "ScoringFilterNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_ScoringFilterNodeArguments_and_ScoringFilterNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "ScoringFilterNode"
+      ],
+      "additionalProperties": false,
+      "icon": "filter_list_alt",
+      "class": "Functional"
+    },
+    {
+      "title": "Grouped Scoring Cartesian Node",
+      "description": "A node that combines multiple inputs into a Cartesian product and evaluates the combinations to produce the best match for a key.",
+      "type": "object",
+      "properties": {
+        "GroupedScoringFilterNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_GroupedScoringFilterNodeArguments_and_GroupedScoringFilterNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "GroupedScoringFilterNode"
+      ],
+      "additionalProperties": false,
+      "icon": "merge_type",
+      "class": "Functional"
+    },
+    {
+      "title": "Split Node",
+      "description": "Splits the outputs into 2 streams.",
+      "type": "object",
+      "properties": {
+        "SplitNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_SplitNodeArguments_and_SplitNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "SplitNode"
+      ],
+      "additionalProperties": false,
+      "icon": "call_split",
+      "class": "Processing"
+    },
+    {
+      "title": "Google Node",
+      "description": "A node specifically designed for Google search parameters and states.",
+      "type": "object",
+      "properties": {
+        "GoogleNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_GoogleSearchParameters_and_GoogleNodeState"
+            }
+          },
+          "required": [
+            "name",
+            "init"
+          ]
+        }
+      },
+      "required": [
+        "GoogleNode"
+      ],
+      "additionalProperties": false,
+      "icon": "search",
+      "class": "DataInput"
+    },
+    {
+      "title": "Website searching robot",
+      "description": "A node that produces a link to some website using some simple scoring mechanism for the links.",
+      "type": "object",
+      "properties": {
+        "WebsiteSearchingRobotNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_WebsiteSearchingRobotArguments_and_WebsiteSearchingRobotState"
+            }
+          },
+          "required": [
+            "name",
+            "init"
+          ]
+        }
+      },
+      "required": [
+        "WebsiteSearchingRobotNode"
+      ],
+      "additionalProperties": false,
+      "icon": "public",
+      "class": "DataInput"
+    },
+    {
+      "title": "Evaluation Node",
+      "description": "A node for evaluating pitches.",
+      "type": "object",
+      "properties": {
+        "EvaluationNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_EvaluationNodeArguments_and_EvaluationNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "EvaluationNode"
+      ],
+      "additionalProperties": false,
+      "icon": "rate_review",
+      "class": "Functional"
+    },
+    {
+      "title": "Extract node",
+      "description": "This node extracts some nested datatypes like some specific ExternalType from more complex data structures.",
+      "type": "object",
+      "properties": {
+        "ExtractNode": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "human_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "init": {
+              "$ref": "#/$defs/NodeInit_for_ExtractNodeArguments_and_ExtractNodeState"
+            },
+            "input": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "init",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "ExtractNode"
+      ],
+      "additionalProperties": false,
+      "icon": "content_cut",
+      "class": "Processing"
+    }
+  ],
+  "$defs": {
+    "NodeInit_for_AccumulateOnceArguments_and_AccumulateOnceNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/AccumulateOnceArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "AccumulateOnceArguments": {
+      "type": "object",
+      "properties": {
+        "n_items": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        },
+        "max_time_secs": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "n_items",
+        "max_time_secs"
+      ]
+    },
+    "NodeInit_for_SequenceNodeArguments_and_SequenceNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/SequenceNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SequenceNodeArguments": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        },
+        "end": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "start"
+      ]
+    },
+    "NodeInit_for_BingParameters_and_BingState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/BingParameters"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "BingParameters": {
+      "type": "object",
+      "properties": {
+        "reasoning": {
+          "description": "Reasoning behind the selection of search phrases",
+          "type": "string"
+        },
+        "search_phrases": {
+          "description": "Search phrases. Company names, people names should be enclosed in quotes to search exactly by these terms.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "freshness": {
+          "description": "Optional freshness in a format: 2019-02-01..2019-05-30",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "reasoning",
+        "search_phrases"
+      ]
+    },
+    "NodeInit_for_ScraperNodeArguments_and_ScraperNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/ScraperNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ScraperNodeArguments": {
+      "type": "object",
+      "properties": {
+        "stop_if_fail": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "stop_if_fail"
+      ]
+    },
+    "NodeInit_for_MapNodeArguments_and_MapNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/MapNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "MapNodeArguments": {
+      "type": "object",
+      "properties": {
+        "datatype": {
+          "$ref": "#/$defs/OutputDatatype"
+        },
+        "mapping_guidelines": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mapping_guidelines_context": true,
+        "append": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "map_to_collection": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "sentinel_template_details": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SentinelTemplateDetails"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "datatype"
+      ]
+    },
+    "OutputDatatype": {
+      "oneOf": [
+        {
+          "description": "Reference",
+          "type": "string",
+          "const": "Reference"
+        },
+        {
+          "description": "Opportunity",
+          "type": "string",
+          "const": "Opportunity"
+        },
+        {
+          "description": "Email",
+          "type": "string",
+          "const": "Email"
+        },
+        {
+          "description": "Pitch",
+          "type": "string",
+          "const": "Pitch"
+        },
+        {
+          "description": "Contact",
+          "type": "string",
+          "const": "Contact"
+        },
+        {
+          "description": "Contact Post",
+          "type": "string",
+          "const": "ContactPost"
+        },
+        {
+          "description": "Use Case v1",
+          "type": "string",
+          "const": "UseCaseV1"
+        },
+        {
+          "description": "Use Case v2",
+          "type": "string",
+          "const": "UseCaseV2"
+        },
+        {
+          "description": "Use Case v3",
+          "type": "string",
+          "const": "UseCaseV3"
+        },
+        {
+          "description": "Custom datatype",
+          "type": "object",
+          "properties": {
+            "Custom": {
+              "$ref": "#/$defs/GenNodeDataType"
+            }
+          },
+          "required": [
+            "Custom"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "description": "Case study",
+          "type": "string",
+          "const": "CaseStudy"
+        },
+        {
+          "description": "Ideal persona definition",
+          "type": "string",
+          "const": "IdealPersonaDefinition"
+        },
+        {
+          "description": "Persona Group",
+          "type": "string",
+          "const": "PersonaGroup"
+        },
+        {
+          "description": "Company Profile",
+          "type": "string",
+          "const": "CompanyProfile"
+        }
+      ]
+    },
+    "GenNodeDataType": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "json_schema": true,
+        "few_shots": {
+          "type": "array",
+          "items": true
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "json_schema",
+        "few_shots"
+      ]
+    },
+    "SentinelTemplateDetails": {
+      "type": "object",
+      "properties": {
+        "pool_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pool_name"
+      ]
+    },
+    "NodeInit_for_FilterNodeArguments_and_FilterNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/FilterNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FilterNodeArguments": {
+      "type": "object",
+      "properties": {
+        "instruction": {
+          "type": "string"
+        },
+        "add_previously_accepted_values": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "instruction",
+        "add_previously_accepted_values"
+      ]
+    },
+    "NodeInit_for_CartesianNodeArguments_and_CartesianNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/CartesianNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "CartesianNodeArguments": {
+      "type": "object"
+    },
+    "NodeInit_for_ConcatNodeArguments_and_ConcatNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/ConcatNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ConcatNodeArguments": {
+      "type": "object",
+      "properties": {
+        "strategy": {
+          "title": "Strategy how to concatenate the results of many streams",
+          "$ref": "#/$defs/ConcatStrategy"
+        }
+      },
+      "required": [
+        "strategy"
+      ]
+    },
+    "ConcatStrategy": {
+      "oneOf": [
+        {
+          "title": "Round Robin",
+          "description": "Asks inputs to provide results one by one",
+          "type": "string",
+          "const": "RoundRobin"
+        },
+        {
+          "title": "Sequential",
+          "description": "Tries to exhaust the first stream, then the next one etc.",
+          "type": "string",
+          "const": "Sequential"
+        },
+        {
+          "title": "Random",
+          "description": "Queries the streams randomly",
+          "type": "string",
+          "const": "Random"
+        }
+      ]
+    },
+    "NodeInit_for_LimitNodeArguments_and_LimitNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/LimitNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "LimitNodeArguments": {
+      "type": "object",
+      "properties": {
+        "max_items": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "max_items"
+      ]
+    },
+    "NodeInit_for_WorkflowExecutorNodeArguments_and_WorkflowExecutorNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/WorkflowExecutorNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "WorkflowExecutorNodeArguments": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uuid"
+        },
+        "workflow_definition": {
+          "$ref": "#/$defs/WorkflowDefinition"
+        }
+      },
+      "required": [
+        "workflow_definition"
+      ]
+    },
+    "WorkflowDefinition": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "node_graph": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/NodeDefinition"
+          }
+        }
+      },
+      "required": [
+        "node_graph"
+      ]
+    },
+    "NodeDefinition": {
+      "oneOf": [
+        {
+          "title": "Batch Node",
+          "description": "A node that accumulates n values and produces them once",
+          "type": "object",
+          "properties": {
+            "AccumulateOnceNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_AccumulateOnceArguments_and_AccumulateOnceNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "AccumulateOnceNode"
+          ],
+          "additionalProperties": false,
+          "icon": "add_box",
+          "class": "Processing"
+        },
+        {
+          "title": "Sequence Node",
+          "description": "A node that processes elements in a sequence.",
+          "type": "object",
+          "properties": {
+            "SequenceNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_SequenceNodeArguments_and_SequenceNodeState"
+                }
+              },
+              "required": [
+                "name",
+                "init"
+              ]
+            }
+          },
+          "required": [
+            "SequenceNode"
+          ],
+          "additionalProperties": false,
+          "icon": "linear_scale",
+          "class": "Processing"
+        },
+        {
+          "title": "Bing Node",
+          "description": "A node specifically designed for Bing search parameters and states.",
+          "type": "object",
+          "properties": {
+            "BingNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_BingParameters_and_BingState"
+                }
+              },
+              "required": [
+                "name",
+                "init"
+              ]
+            }
+          },
+          "required": [
+            "BingNode"
+          ],
+          "additionalProperties": false,
+          "icon": "search",
+          "class": "DataInput"
+        },
+        {
+          "title": "Scraper Node",
+          "description": "A node that scrapes data based on provided arguments and maintains state.",
+          "type": "object",
+          "properties": {
+            "ScraperNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_ScraperNodeArguments_and_ScraperNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "ScraperNode"
+          ],
+          "additionalProperties": false,
+          "icon": "cloud_download",
+          "class": "DataInput"
+        },
+        {
+          "title": "Map Node",
+          "description": "A node that applies a mapping function to the input data.",
+          "type": "object",
+          "properties": {
+            "MapNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_MapNodeArguments_and_MapNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "MapNode"
+          ],
+          "additionalProperties": false,
+          "icon": "filter_alt",
+          "class": "Functional"
+        },
+        {
+          "title": "Filter Node",
+          "description": "A node that filters input data based on specified arguments and conditions.",
+          "type": "object",
+          "properties": {
+            "FilterNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_FilterNodeArguments_and_FilterNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "FilterNode"
+          ],
+          "additionalProperties": false,
+          "icon": "filter_list",
+          "class": "Functional"
+        },
+        {
+          "title": "Cartesian Node",
+          "description": "A node that combines multiple inputs into a Cartesian product.",
+          "type": "object",
+          "properties": {
+            "CartesianNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_CartesianNodeArguments_and_CartesianNodeState"
+                },
+                "inputs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "inputs"
+              ]
+            }
+          },
+          "required": [
+            "CartesianNode"
+          ],
+          "additionalProperties": false,
+          "icon": "layers",
+          "class": "Processing"
+        },
+        {
+          "title": "Concat Node",
+          "description": "A node that concatenates multiple input streams into a single output.",
+          "type": "object",
+          "properties": {
+            "ConcatNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_ConcatNodeArguments_and_ConcatNodeState"
+                },
+                "inputs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "inputs"
+              ]
+            }
+          },
+          "required": [
+            "ConcatNode"
+          ],
+          "additionalProperties": false,
+          "icon": "link",
+          "class": "Processing"
+        },
+        {
+          "title": "Limit Node",
+          "description": "A node that limits the amount of data processed or passed through.",
+          "type": "object",
+          "properties": {
+            "LimitNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_LimitNodeArguments_and_LimitNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "LimitNode"
+          ],
+          "additionalProperties": false,
+          "icon": "compress",
+          "class": "Processing"
+        },
+        {
+          "title": "Workflow Executor Node",
+          "description": "A node responsible for orchestrating and executing a series of workflow steps based on its configuration.",
+          "type": "object",
+          "properties": {
+            "WorkflowExecutorNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_WorkflowExecutorNodeArguments_and_WorkflowExecutorNodeState"
+                }
+              },
+              "required": [
+                "name",
+                "init"
+              ]
+            }
+          },
+          "required": [
+            "WorkflowExecutorNode"
+          ],
+          "additionalProperties": false,
+          "icon": "auto_awesome_motion",
+          "class": "Workflow"
+        },
+        {
+          "title": "Constant Node",
+          "description": "A node that outputs a constant value. The value is defined during the initialization and remains unchanged.",
+          "type": "object",
+          "properties": {
+            "ConstantNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_ConstantNodeArguments_and_ConstantNodeState"
+                }
+              },
+              "required": [
+                "name",
+                "init"
+              ]
+            }
+          },
+          "required": [
+            "ConstantNode"
+          ],
+          "additionalProperties": false,
+          "icon": "looks_one",
+          "class": "DataInput"
+        },
+        {
+          "title": "Scoring Node",
+          "description": "A node that applies a scoring algorithm to input data to evaluate or rate it based on defined metrics.",
+          "type": "object",
+          "properties": {
+            "ScoringNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_ScoringNodeArguments_and_ScoringNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "ScoringNode"
+          ],
+          "additionalProperties": false,
+          "icon": "star_rate",
+          "class": "Functional"
+        },
+        {
+          "title": "Accumulate Node",
+          "description": "A node that accumulates all values from all streams.",
+          "type": "object",
+          "properties": {
+            "AccumulateNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_AccumulateNodeArguments_and_AccumulateNodeState"
+                },
+                "inputs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "inputs"
+              ]
+            }
+          },
+          "required": [
+            "AccumulateNode"
+          ],
+          "additionalProperties": false,
+          "icon": "collections",
+          "class": "Processing"
+        },
+        {
+          "title": "ForEach Node",
+          "description": "A node that applies a mapping function to the input data.",
+          "type": "object",
+          "properties": {
+            "ForEachNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_ForEachNodeArguments_and_ForEachNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "ForEachNode"
+          ],
+          "additionalProperties": false,
+          "icon": "repeat",
+          "class": "Processing"
+        },
+        {
+          "title": "Passthrough Node",
+          "description": "A node that just passes the values from input.",
+          "type": "object",
+          "properties": {
+            "PassThroughNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_PassThroughNodeArguments_and_PassThroughNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "PassThroughNode"
+          ],
+          "additionalProperties": false,
+          "icon": "arrow_forward",
+          "class": "Processing"
+        },
+        {
+          "title": "Deduplicate Node",
+          "description": "A node that deduplicates data that goes through it using simple text similarity.",
+          "type": "object",
+          "properties": {
+            "DeduplicateNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_DeduplicateNodeArguments_and_DeduplicateNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "DeduplicateNode"
+          ],
+          "additionalProperties": false,
+          "icon": "filter_none",
+          "class": "Processing"
+        },
+        {
+          "title": "ConstantSequence Node",
+          "description": "A node that outputs a constant value sequence. The values are defined during the initialization and remain unchanged.",
+          "type": "object",
+          "properties": {
+            "ConstantSequenceNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_ConstantSequenceNodeArguments_and_ConstantSequenceNodeState"
+                }
+              },
+              "required": [
+                "name",
+                "init"
+              ]
+            }
+          },
+          "required": [
+            "ConstantSequenceNode"
+          ],
+          "additionalProperties": false,
+          "icon": "looks",
+          "class": "Processing"
+        },
+        {
+          "title": "PDL Node",
+          "description": "A node specifically designed for PDL search parameters and states.",
+          "type": "object",
+          "properties": {
+            "PDLNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_PDLNodeArguments_and_PDLNodeState"
+                },
+                "input": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "init"
+              ]
+            }
+          },
+          "required": [
+            "PDLNode"
+          ],
+          "additionalProperties": false,
+          "icon": "find_in_page",
+          "class": "DataInput"
+        },
+        {
+          "title": "MatchNode",
+          "description": "A node specifically designed for PDL search parameters and states.",
+          "type": "object",
+          "properties": {
+            "MatchNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_MatchNodeArguments_and_MatchNodeState"
+                },
+                "inputs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "inputs"
+              ]
+            }
+          },
+          "required": [
+            "MatchNode"
+          ],
+          "additionalProperties": false,
+          "icon": "rule",
+          "class": "Processing"
+        },
+        {
+          "title": "Score Filter Node",
+          "description": "A node that filters scored input data based on specified arguments and conditions.",
+          "type": "object",
+          "properties": {
+            "ScoringFilterNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_ScoringFilterNodeArguments_and_ScoringFilterNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "ScoringFilterNode"
+          ],
+          "additionalProperties": false,
+          "icon": "filter_list_alt",
+          "class": "Functional"
+        },
+        {
+          "title": "Grouped Scoring Cartesian Node",
+          "description": "A node that combines multiple inputs into a Cartesian product and evaluates the combinations to produce the best match for a key.",
+          "type": "object",
+          "properties": {
+            "GroupedScoringFilterNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_GroupedScoringFilterNodeArguments_and_GroupedScoringFilterNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "GroupedScoringFilterNode"
+          ],
+          "additionalProperties": false,
+          "icon": "merge_type",
+          "class": "Functional"
+        },
+        {
+          "title": "Split Node",
+          "description": "Splits the outputs into 2 streams.",
+          "type": "object",
+          "properties": {
+            "SplitNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_SplitNodeArguments_and_SplitNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "SplitNode"
+          ],
+          "additionalProperties": false,
+          "icon": "call_split",
+          "class": "Processing"
+        },
+        {
+          "title": "Google Node",
+          "description": "A node specifically designed for Google search parameters and states.",
+          "type": "object",
+          "properties": {
+            "GoogleNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_GoogleSearchParameters_and_GoogleNodeState"
+                }
+              },
+              "required": [
+                "name",
+                "init"
+              ]
+            }
+          },
+          "required": [
+            "GoogleNode"
+          ],
+          "additionalProperties": false,
+          "icon": "search",
+          "class": "DataInput"
+        },
+        {
+          "title": "Website searching robot",
+          "description": "A node that produces a link to some website using some simple scoring mechanism for the links.",
+          "type": "object",
+          "properties": {
+            "WebsiteSearchingRobotNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_WebsiteSearchingRobotArguments_and_WebsiteSearchingRobotState"
+                }
+              },
+              "required": [
+                "name",
+                "init"
+              ]
+            }
+          },
+          "required": [
+            "WebsiteSearchingRobotNode"
+          ],
+          "additionalProperties": false,
+          "icon": "public",
+          "class": "DataInput"
+        },
+        {
+          "title": "Evaluation Node",
+          "description": "A node for evaluating pitches.",
+          "type": "object",
+          "properties": {
+            "EvaluationNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_EvaluationNodeArguments_and_EvaluationNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "EvaluationNode"
+          ],
+          "additionalProperties": false,
+          "icon": "rate_review",
+          "class": "Functional"
+        },
+        {
+          "title": "Extract node",
+          "description": "This node extracts some nested datatypes like some specific ExternalType from more complex data structures.",
+          "type": "object",
+          "properties": {
+            "ExtractNode": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "human_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "init": {
+                  "$ref": "#/$defs/NodeInit_for_ExtractNodeArguments_and_ExtractNodeState"
+                },
+                "input": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "init",
+                "input"
+              ]
+            }
+          },
+          "required": [
+            "ExtractNode"
+          ],
+          "additionalProperties": false,
+          "icon": "content_cut",
+          "class": "Processing"
+        }
+      ]
+    },
+    "NodeInit_for_ConstantNodeArguments_and_ConstantNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/ConstantNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ConstantNodeArguments": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/NodeInnerValue"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "NodeInnerValue": {
+      "description": "Nodes produce NodeValue as the output type - this is the only allowed type.\n\n It contains NodeInnerValue which is an enumeration of all possible types like:\n - Primitives: Number, String (used for testing)\n - Internal types used by nodes: Snippet, ScrapedWebsite, JSON Value\n - External types: Contact, Pitch, References etc\n - Composed types: Scored NodeInnerValue, Named NodeInnerValue (this one is used as an output of the nodes that produce combinations of inputs).\n\n External types from the workflow perspective should work the same as internal types.\n To make it possible both internal and external types should be able to produce a JSON Schemas.Nodes produce NodeValue as the output type - this is the only allowed type.\n It contains NodeInnerValue which is an enumeration of all possible types like:\n - Primitives: Number, String (used for testing)\n - Internal types used by nodes: Snippet, ScrapedWebsite, JSON Value\n - External types: Contact, Pitch, References etc\n - Composed types: Scored NodeInnerValue, Named NodeInnerValue (this one is used as an output of the nodes that produce combinations of inputs).\n\n External types from the workflow perspective should work the same as internal types.\n To make it possible both internal and external types should be able to produce a JSON Schemas.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "SavedInRegistry"
+          ]
+        },
+        {
+          "title": "Empty",
+          "description": "Empty value",
+          "type": "string",
+          "const": "Dummy"
+        },
+        {
+          "title": "Url",
+          "description": "Url",
+          "type": "object",
+          "properties": {
+            "Url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "Url"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Number",
+          "description": "Stores an unsigned integer, typically used for numeric values.",
+          "type": "object",
+          "properties": {
+            "Number": {
+              "type": "integer",
+              "format": "uint",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "Number"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "String",
+          "description": "Stores string data, used for textual information.",
+          "type": "object",
+          "properties": {
+            "String": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "String"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "GoogleSnippet",
+          "description": "Stores a Google-specific snippet, usually a piece of extracted data.",
+          "type": "object",
+          "properties": {
+            "GoogleSnippet": {
+              "$ref": "#/$defs/GoogleSnippet"
+            }
+          },
+          "required": [
+            "GoogleSnippet"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Snippet",
+          "description": "Stores a Bing-specific snippet, usually a piece of extracted data.",
+          "type": "object",
+          "properties": {
+            "Snippet": {
+              "$ref": "#/$defs/BingSnippet"
+            }
+          },
+          "required": [
+            "Snippet"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Autoprospecting contact",
+          "description": "Stores all the data about a contact",
+          "type": "object",
+          "properties": {
+            "APSContact": {
+              "$ref": "#/$defs/APSContact"
+            }
+          },
+          "required": [
+            "APSContact"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Scraped Website",
+          "description": "Stores data scraped from a website, encapsulated in a defined structure.",
+          "type": "object",
+          "properties": {
+            "ScrapedWebsite": {
+              "$ref": "#/$defs/ScrapedWebsite"
+            }
+          },
+          "required": [
+            "ScrapedWebsite"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "JSON Value",
+          "description": "Stores a JSON value, allowing for flexible data representation.",
+          "type": "object",
+          "properties": {
+            "JSONValue": true
+          },
+          "required": [
+            "JSONValue"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Workflow Type Value",
+          "description": "A structured value specific to a workflow, including a name and a JSON value.",
+          "type": "object",
+          "properties": {
+            "WorkflowTypeValue": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "value": true
+              },
+              "required": [
+                "name",
+                "value"
+              ]
+            }
+          },
+          "required": [
+            "WorkflowTypeValue"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "External Type Value",
+          "description": "Represents a custom internal type, detailed in the InternalType struct.",
+          "type": "object",
+          "properties": {
+            "ExternalTypeValue": {
+              "$ref": "#/$defs/ExternalType"
+            }
+          },
+          "required": [
+            "ExternalTypeValue"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "External Type Value",
+          "description": "Represents a custom internal type, detailed in the InternalType struct.",
+          "type": "object",
+          "properties": {
+            "ExternalTypeValues": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ExternalType"
+              }
+            }
+          },
+          "required": [
+            "ExternalTypeValues"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Error",
+          "description": "Stores an error message, indicating failure or issue in operations.",
+          "type": "object",
+          "properties": {
+            "Error": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Error"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Named Inner Values",
+          "description": "A hashmap storing multiple named values, each being another NodeInnerValue.",
+          "type": "object",
+          "properties": {
+            "NamedInnerValues": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/NodeValue"
+              }
+            }
+          },
+          "required": [
+            "NamedInnerValues"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Named Inner Values",
+          "description": "A hashmap storing multiple named values, each being another NodeInnerValue.",
+          "type": "object",
+          "properties": {
+            "AccumulatedNamedInnerValues": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/NodeValue"
+                }
+              }
+            }
+          },
+          "required": [
+            "AccumulatedNamedInnerValues"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Scored Value",
+          "description": "A value paired with a score and reasoning, typically used for evaluated data.",
+          "type": "object",
+          "properties": {
+            "ScoredValue": {
+              "type": "object",
+              "properties": {
+                "score": {
+                  "type": "integer",
+                  "format": "uint",
+                  "minimum": 0
+                },
+                "reasoning": {
+                  "type": "string"
+                },
+                "value": {
+                  "$ref": "#/$defs/NodeValue"
+                }
+              },
+              "required": [
+                "score",
+                "reasoning",
+                "value"
+              ]
+            }
+          },
+          "required": [
+            "ScoredValue"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Evaluation Value",
+          "description": "A value paired with a score and reasoning, typically used for evaluated data.",
+          "type": "object",
+          "properties": {
+            "EvaluatedValue": {
+              "type": "object",
+              "properties": {
+                "questions": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Question"
+                  }
+                },
+                "answers": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/$defs/Answer"
+                  }
+                },
+                "score": {
+                  "type": "integer",
+                  "format": "uint",
+                  "minimum": 0
+                },
+                "value": {
+                  "$ref": "#/$defs/NodeValue"
+                }
+              },
+              "required": [
+                "questions",
+                "answers",
+                "score",
+                "value"
+              ]
+            }
+          },
+          "required": [
+            "EvaluatedValue"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "GoogleSnippet": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "snippet": {
+          "type": "string"
+        },
+        "display_url": {
+          "type": "string"
+        },
+        "metatags": true,
+        "query": {
+          "type": "string"
+        },
+        "ranking": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "url",
+        "title",
+        "snippet",
+        "display_url",
+        "query",
+        "ranking"
+      ]
+    },
+    "BingSnippet": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "snippet": {
+          "type": "string"
+        },
+        "publication_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "query": {
+          "type": "string"
+        },
+        "ranking": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "url",
+        "title",
+        "snippet",
+        "query",
+        "ranking"
+      ]
+    },
+    "APSContact": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Current job title of the contact.",
+          "type": "string"
+        },
+        "buyingRole": {
+          "description": "Role in buying process, such as Exec buyer, Financial buyer, or Champion.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contactId": {
+          "description": "id of the contact",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "currentEmployer": {
+          "description": "Current employer of the contact.",
+          "type": "string"
+        },
+        "email": {
+          "description": "Email address of the contact.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "linkedinLastSeen": {
+          "description": "The date that this entity was last associated with the Person record.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "linkedInUrl": {
+          "description": "LinkedIn profile URL of the contact.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "Full name of the contact within the prospect or seller's company.",
+          "type": "string"
+        },
+        "phoneNumbers": {
+          "description": "Mobile phone number associated with the user.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "previousEmployer": {
+          "description": "Previous employer of the contact.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "previousTitle": {
+          "description": "Previous job title held by the contact.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "score": {
+          "description": "Score between 1 and 10 of this person match.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int32"
+        },
+        "reasoning": {
+          "description": "Why this person is a good match.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "region": {
+          "description": "Contact geographic location.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tenureInMonths": {
+          "description": "The tenure in months.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int32"
+        }
+      },
+      "required": [
+        "currentEmployer",
+        "name",
+        "title"
+      ]
+    },
+    "ScrapedWebsite": {
+      "type": "object",
+      "properties": {
+        "content_type": {
+          "$ref": "#/$defs/ScrapingContentType"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "zyte_response": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ZyteResponseData"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "schemas": true,
+        "raw_html": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bing_snippet": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/BingSnippet"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "google_snippet": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GoogleSnippet"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "content_type",
+        "url"
+      ]
+    },
+    "ScrapingContentType": {
+      "type": "string",
+      "enum": [
+        "Html",
+        "Pdf",
+        "Other"
+      ]
+    },
+    "ZyteResponseData": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "statusCode": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint16",
+          "minimum": 0
+        },
+        "httpResponseBody": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "httpResponseHeaders": true,
+        "browserHtml": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "session": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Session"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "screenshot": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "article": true,
+        "articleList": true,
+        "articleNavigation": true,
+        "jobPosting": true,
+        "product": true,
+        "productList": true,
+        "productNavigation": true,
+        "echoData": true,
+        "jobId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "actions": true,
+        "responseCookies": true,
+        "networkCapture": true
+      }
+    },
+    "Session": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "ExternalType": {
+      "description": "Internal type is a type that has a definition inside GenNodes\n Those types have a schema",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "Reference": {
+              "$ref": "#/$defs/ReferenceItem"
+            }
+          },
+          "required": [
+            "Reference"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Opportunity": {
+              "$ref": "#/$defs/OpportunityItem"
+            }
+          },
+          "required": [
+            "Opportunity"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Pitch": {
+              "$ref": "#/$defs/PitchItem"
+            }
+          },
+          "required": [
+            "Pitch"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Contact": {
+              "$ref": "#/$defs/APSContact"
+            }
+          },
+          "required": [
+            "Contact"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Email": {
+              "$ref": "#/$defs/EmailItem"
+            }
+          },
+          "required": [
+            "Email"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "CompanyUseCase": {
+              "$ref": "#/$defs/CompanyUseCase"
+            }
+          },
+          "required": [
+            "CompanyUseCase"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "CompanyCaseStudy": {
+              "$ref": "#/$defs/CompanyCaseStudy"
+            }
+          },
+          "required": [
+            "CompanyCaseStudy"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ContactPost": {
+              "$ref": "#/$defs/ContactPost"
+            }
+          },
+          "required": [
+            "ContactPost"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "IdealPersonaDefinition": {
+              "$ref": "#/$defs/IdealPersonaDefinition"
+            }
+          },
+          "required": [
+            "IdealPersonaDefinition"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "PersonaGroup": {
+              "$ref": "#/$defs/PersonaGroup"
+            }
+          },
+          "required": [
+            "PersonaGroup"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "Url"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "CompanyProfile": {
+              "$ref": "#/$defs/CompanyProfile"
+            }
+          },
+          "required": [
+            "CompanyProfile"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ReferenceItem": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Title of the news item related to the prospect or seller.",
+          "type": "string"
+        },
+        "description": {
+          "description": "Summary or description of the news item.",
+          "type": "string"
+        },
+        "id": {
+          "description": "ID created by the OttoPG - GPT: leave empty",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "link": {
+          "description": "Link to the full news article.",
+          "type": "string"
+        },
+        "reasoning": {
+          "description": "Reasoning behind the opportunity rank.",
+          "type": "string"
+        },
+        "category": {
+          "description": "Category of the news: financial, marketing, self-promotion, other",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publicationDate": {
+          "description": "Date of the article in the format YYYY-MM-DD - leave empty if None",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date",
+          "default": null
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "link",
+        "reasoning"
+      ]
+    },
+    "OpportunityItem": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Short title of the highlight or key takeaway.",
+          "type": "string"
+        },
+        "description": {
+          "description": "One paragraph opportunity, highlight or key takeaway. Give as much detail as possible.",
+          "type": "string"
+        },
+        "id": {
+          "description": "UUID field",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uuid"
+        },
+        "reasoning": {
+          "description": "Reasoning behind the opportunity rank. Analyze the facts inside <TASK>.",
+          "type": "string"
+        },
+        "score": {
+          "description": "Score of the opportunity on a scale of 1 to 10, where 10 indicates that the opportunity aligns best with the prospect's needs, and 1 signifies the least alignment.\nScore 1: Very Poor. The opportunity does not capture the prospect's needs or challenges, is vague, poorly tailored, and lacks understanding or empathy. It fails to identify relevant opportunities, align with market trends, or provide evidence of viability.\nScore 2: Poor. Slightly better than Very Poor, capturing some needs but still unclear and weakly tailored. Shows minimal understanding and provides limited relevant opportunities and evidence.\nScore 3: Somewhat Poor. Captures needs more clearly but still uses vague terms. Shows limited understanding and weak identification of relevant opportunities with minimal evidence.\nScore 4: Below Average. Somewhat clearer and more tailored than the previous scores. Shows some understanding, identifies some relevant opportunities, and provides some evidence.\nScore 5: Average. Captures needs accurately but lacks full detail. Shows moderate understanding, identifies relevant opportunities, and provides adequate evidence.\nScore 6: Above Average. More detailed and well-tailored than Average. Shows good understanding, identifies relevant opportunities, and provides strong evidence.\nScore 7: Good. Clearly captures needs with minor gaps. Well-tailored, shows strong understanding, identifies relevant opportunities thoroughly, and provides solid evidence.\nScore 8: Very Good. Deeply captures needs with high clarity and detail. Well-tailored, shows high understanding, comprehensively identifies opportunities, and provides strong evidence.\nScore 9: Excellent. Meticulously captures needs with great detail. Thoroughly tailored, shows exceptional understanding, exhaustively identifies opportunities, and provides extensive evidence.\nScore 10: Exceptional. Flawlessly captures needs with exceptional clarity and detail. Perfectly tailored, shows unparalleled understanding, identifies all opportunities comprehensively, and provides outstanding evidence.",
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "reasoning",
+        "score",
+        "title",
+        "description"
+      ]
+    },
+    "PitchItem": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "The pitch title should summarize the ['description'] and ['reasoning'] in ['Opportunity'] and include ['title'] of ['Reference']. (IMPORTANT!!!) Pick a random letter from the full alphabet and ensure that the 1st word in the pitch starts with that letter.",
+          "type": "string"
+        },
+        "description": {
+          "description": "The recommended pitch body should be broken down into 3 sections Why? Why Now? and Why Us? Be clear, direct and concise. Total word count should be 200 words or less.  You MUST separate the Why?, Why Now? and Why Us? sections with two newline characters (example:  \n\n) as shown in the Few Shot Examples. The formatting should be: Why?\nContent\n\nWhy Now?\nContent\n\nWhy Us?\nContent\n\n",
+          "type": "string"
+        },
+        "id": {
+          "description": "UUID: Unique identifier for the pitch",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reasoning": {
+          "description": "Reasoning behind the pitch score. Analyze the facts presented in the <TASK>. Which of them can be used?.",
+          "type": "string"
+        },
+        "score": {
+          "description": "The score of the pitch on the scale of 1 to 10 using the [ScoringSystem] provided below.\n    {\n        \"score 1\": \"Very Poor. The pitch shows zero relevance, with no alignment between the seller's use cases and the opportunities identified in the references. It lacks clarity and detail.\",\n        \"score 2\": \"Poor. The pitch shows minimal relevance, with only slight alignment between the seller's use cases and the opportunities identified in the references. It is unclear and lacks detail.\",\n        \"score 3\": \"Somewhat Poor. The pitch makes an attempt to align the seller's use cases with the opportunities in the references but with limited success. It is somewhat unclear and lacks sufficient detail.\",\n        \"score 4\": \"Below Average. The pitch shows more relevant content, aligning more with the opportunities identified in the references. However, it still lacks clarity and critical details.\",\n        \"score 5\": \"Average. The pitch shows some alignment with the opportunities in the references and the seller's use cases. It is moderately clear but still lacks full detail.\",\n        \"score 6\": \"Above Average. The pitch shows improved relevance, with clearer connections between the seller's use cases and the opportunities in the references. It is clearer but still needs more detailed support.\",\n        \"score 7\": \"Good. The pitch effectively addresses the opportunities identified in the references, with clear connections to the seller's use cases. It provides clear, actionable steps and supported claims, though it may still need more detail.\",\n        \"score 8\": \"Very Good. The pitch demonstrates a deep understanding of the opportunities identified in the references, with clear and detailed connections to the seller's use cases. It offers comprehensive solutions with detailed, actionable steps and solid data support.\",\n        \"score 9\": \"Excellent. The pitch shows exceptional understanding of the unique opportunities identified in the references. It is clear, detailed, and meticulously aligned with the seller's use cases, providing a detailed roadmap for action.\",\n        \"score 10\": \"Exceptional. The pitch flawlessly matches the opportunities identified in the references, with clear and detailed descriptions of how the seller's use cases apply. It offers highly engaging solutions, with robust data support and clear, actionable steps, perfectly communicating the brand's unique selling points.\"\n    }",
+          "type": "integer",
+          "format": "int32"
+        },
+        "matching": {
+          "description": "Matching criteria to find the ideal persona in the prospect company.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "reasoning",
+        "score",
+        "title",
+        "description"
+      ]
+    },
+    "EmailItem": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "The subject of the email.",
+          "type": "string"
+        },
+        "reasoning": {
+          "description": "Reasoning behind the email communication.",
+          "type": "string"
+        },
+        "body": {
+          "description": "The main body of the email. It should contain clear and concise communication of the message.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "reasoning",
+        "title",
+        "body"
+      ]
+    },
+    "CompanyUseCase": {
+      "anyOf": [
+        true,
+        {
+          "$ref": "#/$defs/CompanyUseCaseV3"
+        },
+        {
+          "$ref": "#/$defs/CompanyUseCaseV2"
+        },
+        {
+          "$ref": "#/$defs/CompanyUseCaseV1"
+        }
+      ]
+    },
+    "CompanyUseCaseV3": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Title of the company use case, summarizing the service provided. Create a captivating and descriptive title that is less than 7 words. Ensure the title is engaging and accurately reflects the service.",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the company use case, summarizing the service provided. Provide a comprehensive overview that captures the essence of the service and its value to clients.",
+          "type": "string"
+        },
+        "id": {
+          "description": "UUID: Unique identifier for the company use case",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reasoning": {
+          "description": "Reasoning behind why this use case is effective for clients. Explain the benefits and advantages of this use case, providing context on its effectiveness.",
+          "type": "string"
+        },
+        "pain": {
+          "description": "(Obligatory field) Pain point that the service addresses. Clearly List specific challenges and pain points that are left unaddressed without the solution proposed in bullet points starting with '-'. Separate each bullet point with '\n'. ",
+          "type": "string"
+        },
+        "problemStatement": {
+          "description": "(Obligatory field) Statement of the problem that the service solves. Set the stage by describing the problems and resulting business challenges the problems create that will be addressed by the Use Case. Describe the industry trends/challenges that are addressed by the Use Case.",
+          "type": "string"
+        },
+        "results": {
+          "description": "(Obligatory field) Expected results from using the service. Describe the results in as much detail as possible.  Focus on tangible business results, like time or money saved, quality improvements, increased customer satisfactions, etc...Include proof points or quotes.  List results in bullet points starting with '-' and there must be a newline character: \n before each dash: - character. ",
+          "type": "string"
+        },
+        "solution": {
+          "description": "(Obligatory field) Solution provided by the service. Describe the specific solution offered, including key features and how it addresses the identified pain points and problem statement.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "reasoning",
+        "description",
+        "title",
+        "pain",
+        "problemStatement",
+        "results",
+        "solution"
+      ]
+    },
+    "CompanyUseCaseV2": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Title of the company use case, summarizing the service provided",
+          "type": "string"
+        },
+        "id": {
+          "description": "UUID: Unique identifier for the company use case",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reasoning": {
+          "description": "(Obligatory) Reasoning behind why this use case is effective for clients",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pain": {
+          "description": "(Obligatory field) Pain point that the service addresses",
+          "type": "string"
+        },
+        "problemStatement": {
+          "description": "(Obligatory field) Statement of the problem that the service solves",
+          "type": "string"
+        },
+        "results": {
+          "description": "(Obligatory field) Expected results from using the service",
+          "type": "string"
+        },
+        "solution": {
+          "description": "(Obligatory field) Solution provided by the service",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "pain",
+        "problemStatement",
+        "results",
+        "solution"
+      ]
+    },
+    "CompanyUseCaseV1": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Title of the company use case, summarizing the service provided",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the company use case",
+          "type": "string"
+        },
+        "id": {
+          "description": "UUID: Unique identifier for the company use case",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reasoning": {
+          "description": "(Obligatory) Reasoning behind why this use case is effective for clients",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "title",
+        "description"
+      ]
+    },
+    "CompanyCaseStudy": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Title of the case study",
+          "type": "string"
+        },
+        "id": {
+          "description": "UUID: Unique identifier for the company case study",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "overview": {
+          "description": "Overview of the case study, providing a summary of the problem and solution",
+          "type": "string"
+        },
+        "results": {
+          "description": "Detailed description of the results achieved from the case study",
+          "type": "string"
+        },
+        "keyMetrics": {
+          "description": "Key metrics highlighting the success and impact of the case study",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/KeyMetric"
+          }
+        },
+        "clientCompany": {
+          "description": "Name of the client company",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "title",
+        "overview",
+        "results",
+        "keyMetrics"
+      ]
+    },
+    "KeyMetric": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the metric",
+          "type": "string"
+        },
+        "value": {
+          "description": "Value of the metric",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    "ContactPost": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique identifier for the contact post, can be null",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uuid"
+        },
+        "original_post": {
+          "description": "Original post content",
+          "type": "string"
+        },
+        "summary": {
+          "description": "Summary of the post",
+          "type": "string"
+        },
+        "link": {
+          "description": "Link to the original post",
+          "type": "string"
+        }
+      },
+      "required": [
+        "original_post",
+        "summary",
+        "link"
+      ]
+    },
+    "IdealPersonaDefinition": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "UUID: Unique identifier for the business persona",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "description": "Name of the persona",
+          "type": "string"
+        },
+        "jobTitles": {
+          "description": "Job titles relevant to the persona",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "industry": {
+          "description": "Industry in which the persona operates",
+          "type": "string"
+        },
+        "companySize": {
+          "description": "Company size by number of employees or revenue",
+          "type": "string"
+        },
+        "painPoints": {
+          "description": "Business-related pain points and challenges faced by the persona",
+          "type": "string"
+        },
+        "goals": {
+          "description": "Business goals and objectives the persona aims to achieve",
+          "type": "string"
+        },
+        "decisionFactors": {
+          "description": "Key decision-making factors for the persona",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "behaviors": {
+          "description": "Key behaviors and preferences of the persona in a business context",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/BusinessBehavior"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "jobTitles",
+        "industry",
+        "companySize",
+        "painPoints",
+        "goals",
+        "decisionFactors",
+        "behaviors"
+      ]
+    },
+    "BusinessBehavior": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "Description of the business behavior",
+          "type": "string"
+        },
+        "context": {
+          "description": "Frequency or context of the behavior in a business setting",
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "context"
+      ]
+    },
+    "PersonaGroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "UUID: Unique identifier for the persona group",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uuid"
+        },
+        "jobGoals": {
+          "description": "Goals of the job associated with the persona",
+          "type": "string"
+        },
+        "pains": {
+          "description": "Pain points experienced in the job by the persona",
+          "type": "string"
+        },
+        "gains": {
+          "description": "Gains or benefits expected by the persona in the job",
+          "type": "string"
+        },
+        "responsibilities": {
+          "description": "Responsibilities of the persona in their job role",
+          "type": "string"
+        },
+        "successCriteria": {
+          "description": "Criteria used to measure the success of the persona's job performance",
+          "type": "string"
+        },
+        "jobTitles": {
+          "description": "Job titles that are relevant to the persona",
+          "type": "string"
+        }
+      },
+      "required": [
+        "jobGoals",
+        "pains",
+        "gains",
+        "responsibilities",
+        "successCriteria",
+        "jobTitles"
+      ]
+    },
+    "CompanyProfile": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the company",
+          "type": "string"
+        },
+        "domain": {
+          "description": "Domain of the company's website",
+          "type": "string"
+        },
+        "industry": {
+          "description": "Industry the company operates in",
+          "type": "string"
+        },
+        "foundedDate": {
+          "description": "Date the company was founded",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "headquarters": {
+          "description": "Headquarters of the company",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Address"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "missionStatement": {
+          "description": "Company mission statement",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "visionStatement": {
+          "description": "Company vision statement",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "coreValues": {
+          "description": "Core values of the company",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "overview": {
+          "description": "Overview of what the company does",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "productsServices": {
+          "description": "Products and services offered by the company",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "targetMarket": {
+          "description": "Target market of the company",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "milestonesHistory": {
+          "description": "Milestones or history of the company",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "awardsRecognitions": {
+          "description": "Awards and recognitions received by the company",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "csr": {
+          "description": "Corporate social responsibility initiatives",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "clientPortfolio": {
+          "description": "Company's client portfolio",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "partnershipsAlliances": {
+          "description": "Partnerships and alliances of the company",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contactInformation": {
+          "description": "Contact information of the company",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ContactInformation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "socialMediaLinks": {
+          "description": "Social media links of the company",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SocialMediaLinks"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "companyCulture": {
+          "description": "Company culture description",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "testimonialsReviews": {
+          "description": "Testimonials and reviews about the company",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "futureGoals": {
+          "description": "Future goals of the company",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "domain",
+        "industry"
+      ]
+    },
+    "Address": {
+      "type": "object",
+      "properties": {
+        "addressLine": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "city": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "postalCode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "ContactInformation": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "address": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Address"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "SocialMediaLinks": {
+      "type": "object",
+      "properties": {
+        "linkedin": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "twitter": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "facebook": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "instagram": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "youtube": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "other": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "NodeValue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "node_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "data": {
+          "$ref": "#/$defs/NodeInnerValue"
+        },
+        "parents": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "cost": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "slot_push": {
+          "type": "boolean"
+        },
+        "sentinel_request_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "node_id",
+        "data",
+        "parents",
+        "slot_push",
+        "sentinel_request_ids"
+      ]
+    },
+    "Question": {
+      "type": "object",
+      "properties": {
+        "question": {
+          "description": "The question text for evaluation.",
+          "type": "string"
+        },
+        "weight": {
+          "description": "The weight of the question in the overall score calculation.",
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "question",
+        "weight"
+      ]
+    },
+    "Answer": {
+      "type": "object",
+      "properties": {
+        "reasoning": {
+          "description": "Reasoning for question score.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "score": {
+          "description": "Score of the evaluation question.",
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "score"
+      ]
+    },
+    "NodeInit_for_ScoringNodeArguments_and_ScoringNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/ScoringNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ScoringNodeArguments": {
+      "type": "object",
+      "properties": {
+        "instruction": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "instruction"
+      ]
+    },
+    "NodeInit_for_AccumulateNodeArguments_and_AccumulateNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/AccumulateNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "AccumulateNodeArguments": {
+      "type": "object"
+    },
+    "NodeInit_for_ForEachNodeArguments_and_ForEachNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/ForEachNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ForEachNodeArguments": {
+      "type": "object",
+      "properties": {
+        "node_graph": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/NodeDefinition"
+          }
+        }
+      },
+      "required": [
+        "node_graph"
+      ]
+    },
+    "NodeInit_for_PassThroughNodeArguments_and_PassThroughNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/PassThroughNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "PassThroughNodeArguments": {
+      "type": "null"
+    },
+    "NodeInit_for_DeduplicateNodeArguments_and_DeduplicateNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/DeduplicateNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "DeduplicateNodeArguments": {
+      "type": "object",
+      "properties": {
+        "similarity_threshold": {
+          "description": "Similarity threshold for deduplication (Levenshtein distance). Values below this threshold are considered duplicates.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "similarity_threshold"
+      ]
+    },
+    "NodeInit_for_ConstantSequenceNodeArguments_and_ConstantSequenceNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/ConstantSequenceNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ConstantSequenceNodeArguments": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/NodeInnerValue"
+          }
+        }
+      },
+      "required": [
+        "values"
+      ]
+    },
+    "NodeInit_for_PDLNodeArguments_and_PDLNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/PDLNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "PDLNodeArguments": {
+      "type": "object",
+      "properties": {
+        "ideal_customer_definition": {
+          "description": "Ideal customer definition",
+          "type": "string"
+        },
+        "domain": {
+          "description": "domain of prospect",
+          "type": "string"
+        },
+        "job_titles": {
+          "description": "list of job titles used for search",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/PDLJobTitle"
+          }
+        },
+        "terms": {
+          "description": "list of job terms for search",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/PDLFieldTerm"
+          }
+        }
+      },
+      "required": [
+        "ideal_customer_definition",
+        "domain"
+      ]
+    },
+    "PDLJobTitle": {
+      "type": "object",
+      "properties": {
+        "job_title": {
+          "description": "value of the field",
+          "type": "string"
+        },
+        "boost": {
+          "description": "value of term boost",
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "job_title",
+        "boost"
+      ]
+    },
+    "PDLFieldTerm": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "description": "name of the field for the term",
+          "$ref": "#/$defs/PDLField"
+        },
+        "term": {
+          "description": "value of the field",
+          "type": "string"
+        },
+        "boost": {
+          "description": "value of term boost",
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "field",
+        "term",
+        "boost"
+      ]
+    },
+    "PDLField": {
+      "type": "string",
+      "enum": [
+        "job_title_role",
+        "job_title_levels",
+        "job_title_sub_role"
+      ]
+    },
+    "NodeInit_for_MatchNodeArguments_and_MatchNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/MatchNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "MatchNodeArguments": {
+      "type": "object"
+    },
+    "NodeInit_for_ScoringFilterNodeArguments_and_ScoringFilterNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/ScoringFilterNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ScoringFilterNodeArguments": {
+      "type": "object",
+      "properties": {
+        "min_preferred_score": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        },
+        "min_accepted_score": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        },
+        "max_time_secs": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "min_preferred_score",
+        "min_accepted_score",
+        "max_time_secs"
+      ]
+    },
+    "NodeInit_for_GroupedScoringFilterNodeArguments_and_GroupedScoringFilterNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/GroupedScoringFilterNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "GroupedScoringFilterNodeArguments": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "min_preferred_score": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        },
+        "min_accepted_score": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        },
+        "max_time_secs": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "key",
+        "min_preferred_score",
+        "min_accepted_score",
+        "max_time_secs"
+      ]
+    },
+    "NodeInit_for_SplitNodeArguments_and_SplitNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/SplitNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SplitNodeArguments": {
+      "type": "object"
+    },
+    "NodeInit_for_GoogleSearchParameters_and_GoogleNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/GoogleSearchParameters"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "GoogleSearchParameters": {
+      "type": "object",
+      "properties": {
+        "reasoning": {
+          "description": "Chain of thought that precedes the answer",
+          "type": "string"
+        },
+        "searchPhrases": {
+          "description": "A list of search phrases to use. Company names, domain names, people names should be enclosed in quotes.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "num": {
+          "description": "The number of search results to return (between 1 and 10, inclusive)",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint",
+          "minimum": 0
+        },
+        "dateRestrict": {
+          "description": "Restricts results to URLs based on date. Supported values:\n\nd[number]: past number of days\nw[number]: past number of weeks\nm[number]: past number of months\ny[number]: past number of years\nExample: 'm1' for the past month",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language": {
+          "description": "Restricts the search to documents written in a particular language (e.g., lr=lang_en)",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gl": {
+          "description": "Geolocation of end user (2-letter country code). Example: 'us'",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fileType": {
+          "description": "File type: restricts results to files of a specified extension. Example: 'pdf'",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "exactTerms": {
+          "description": "Things like company names, people names should be passed as exact terms",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "reasoning",
+        "searchPhrases"
+      ]
+    },
+    "NodeInit_for_WebsiteSearchingRobotArguments_and_WebsiteSearchingRobotState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/WebsiteSearchingRobotArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "WebsiteSearchingRobotArguments": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "keywords": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "format": "uint",
+            "minimum": 0
+          }
+        },
+        "links_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "url",
+        "keywords",
+        "links_only"
+      ]
+    },
+    "NodeInit_for_EvaluationNodeArguments_and_EvaluationNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/EvaluationNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "EvaluationNodeArguments": {
+      "type": "object",
+      "properties": {
+        "instruction": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "questions": {
+          "$ref": "#/$defs/QuestionNodeQuery"
+        }
+      },
+      "required": [
+        "questions"
+      ]
+    },
+    "QuestionNodeQuery": {
+      "type": "object",
+      "properties": {
+        "reasoning": {
+          "description": "Reasoning for LLMs making the evaluation questions.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "questions": {
+          "description": "The evaluation questions with their weights.",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Question"
+          }
+        }
+      },
+      "required": [
+        "questions"
+      ]
+    },
+    "NodeInit_for_ExtractNodeArguments_and_ExtractNodeState": {
+      "description": "Node can be initialized with some arguments, instruction or state",
+      "oneOf": [
+        {
+          "title": "Arguments",
+          "description": "Contains specific configuration arguments for a node.",
+          "type": "object",
+          "properties": {
+            "Arguments": {
+              "$ref": "#/$defs/ExtractNodeArguments"
+            }
+          },
+          "required": [
+            "Arguments"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "title": "Instruction",
+          "description": "Contains a string instruction for initializing or modifying a node.",
+          "type": "object",
+          "properties": {
+            "Instruction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Instruction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ExtractNodeArguments": {
+      "type": "object",
+      "properties": {
+        "external_datatypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ExternalTypeSymbol"
+          }
+        }
+      },
+      "required": [
+        "external_datatypes"
+      ]
+    },
+    "ExternalTypeSymbol": {
+      "type": "string",
+      "enum": [
+        "Reference",
+        "Opportunity",
+        "Pitch",
+        "Contact",
+        "Email",
+        "CompanyUseCase",
+        "CompanyCaseStudy",
+        "ContactPost",
+        "IdealPersonaDefinition",
+        "PersonaGroup",
+        "CompanyProfile",
+        "Url"
+      ]
+    }
+  }
+}
