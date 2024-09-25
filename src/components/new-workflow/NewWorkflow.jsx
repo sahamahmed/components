@@ -29,7 +29,8 @@ const DnDFlow = () => {
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
     const { screenToFlowPosition } = useReactFlow();
     const [type] = useDnD();
-
+    console.log('edges', edges);
+    console.log('nodes', nodes)
     const onConnect = useCallback(
         (params) => {
             console.log('connection', params)
@@ -59,12 +60,16 @@ const DnDFlow = () => {
     );
 
     const handleDeleteNode = (node) => {
-        console.log(node);
+        // console.log(nodes[0]?.position.x);
         setNodes(prev => prev.filter(n => n.data.title !== node.title));
     };
 
     const addNewNode = (event) => {
-        const position = screenToFlowPosition({ x: event.x || 500, y: event.y || 300 });
+        const lastNode = nodes[nodes.length - 1];
+        const newXPosition = lastNode?.position.x + lastNode?.measured.width*2 + 200
+        const newYPosition = lastNode?.position.y 
+        console.log(newYPosition)
+        const position = screenToFlowPosition({ x: event.x || newXPosition || 500, y: event.y ||newYPosition|| 300});
         const newNode = {
             id: getId(),
             type: event.type,
@@ -72,8 +77,21 @@ const DnDFlow = () => {
             data: { ...event.data, hasInput: true, onDelete: handleDeleteNode },
         };
         setNodes((nds) => nds.concat(newNode));
-    };
 
+        if (lastNode) {
+            const newEdge = {
+                id: `xy-edge__${lastNode.id}-${newNode.id}`, 
+                source: lastNode.id, 
+                sourceHandle: lastNode.data.title || 'source', 
+                target: newNode.id,
+                targetHandle: newNode.data.title || 'target', 
+                type: 'step',
+            };
+
+            setEdges((eds) => eds.concat(newEdge));
+        }
+        
+    };
 
     return (
         <div className="dndflow">

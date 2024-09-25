@@ -8,7 +8,7 @@ import CustomNode from './customNode';
 import Select from '../shared/components/select/Select';
 import Typography from '../shared/components/typography/Typography';
 
-import schema from '../../schemas/NodeDefinition_schema.json';
+import schema from '../schemas/NodeDefinition_schema.json'
 
 const NodeList = (schema?.oneOf || []).map(s => {
     return {

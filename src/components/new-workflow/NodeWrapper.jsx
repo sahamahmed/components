@@ -42,7 +42,7 @@ const NodeWrapper = ({ data}) => {
                   <Handle
                       type="source"
                       position="right"
-                      id="a"
+                      id={title}
                       style={{ background: '#555' }}
                   />
           )
