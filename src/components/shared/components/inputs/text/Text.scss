@@ -2,10 +2,9 @@
 @import "../../../../styles/variables.scss";
 
 .custom-input {
-    min-width: 240px;
+    width: 100%;
     gap: 4px;
     opacity: 1;
-    width: 460px;
     .ant-input {
         border: 0.5px solid #eeeeee3d; 
         color: $color-primary;

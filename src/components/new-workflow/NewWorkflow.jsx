@@ -6,13 +6,13 @@ import {
     useNodesState,
     useEdgesState,
     useReactFlow,
+    reconnectEdge,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import Sidebar from './Sidebar';
 import { DnDProvider, useDnD } from './DnDContext'; 
 import Typography from '../shared/components/typography/Typography';
 import './newWorkflow.scss';
-import CustomNode from './customNode';
 import Button from '../shared/components/button/Button';
 import { ReactComponent as EditIcon } from '../../public/icons/edit.svg';
 import CustomControls from './customController';
@@ -27,13 +27,32 @@ const DnDFlow = () => {
     const reactFlowWrapper = useRef(null);
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+    const edgeReconnectSuccessful = useRef(true);
     const { screenToFlowPosition } = useReactFlow();
     const [type] = useDnD();
-    console.log('edges', edges);
-    console.log('nodes', nodes)
+
+
+    const onReconnectStart = useCallback(() => {
+        edgeReconnectSuccessful.current = false;
+    }, []);
+
+    const onReconnect = useCallback((oldEdge, newConnection) => {
+        edgeReconnectSuccessful.current = true;
+        setEdges((els) => reconnectEdge(oldEdge, newConnection, els));
+    }, []);
+
+    const onReconnectEnd = useCallback((_, edge) => {
+        if (!edgeReconnectSuccessful.current) {
+            setEdges((eds) => eds.filter((e) => e.id !== edge.id));
+        }
+
+        edgeReconnectSuccessful.current = true;
+    }, []);
+
+
     const onConnect = useCallback(
         (params) => {
-            console.log('connection', params)
+            // console.log('connection', params)
             setEdges((eds) => addEdge({ ...params, type: "step" }, eds))
         },
         []
@@ -60,23 +79,26 @@ const DnDFlow = () => {
     );
 
     const handleDeleteNode = (node) => {
-        // console.log(nodes[0]?.position.x);
         setNodes(prev => prev.filter(n => n.data.title !== node.title));
     };
 
     const addNewNode = (event) => {
         const lastNode = nodes[nodes.length - 1];
-        const newXPosition = lastNode?.position.x + lastNode?.measured.width*2 + 200
-        const newYPosition = lastNode?.position.y 
-        console.log(newYPosition)
-        const position = screenToFlowPosition({ x: event.x || newXPosition || 500, y: event.y ||newYPosition|| 300});
+        const newXPosition = lastNode?.position.x + lastNode?.measured.width + 50  || 100;
+        const newYPosition = lastNode?.position.y || 210;
+
+        let position 
+
+        event.x && event.y ? position = screenToFlowPosition({ x: event.x , y: event.y  }) : position = { x: newXPosition, y: newYPosition }
+        
+  
         const newNode = {
             id: getId(),
             type: event.type,
             position,
             data: { ...event.data, hasInput: true, onDelete: handleDeleteNode },
         };
-        setNodes((nds) => nds.concat(newNode));
+        setNodes((nds) => nds.concat(newNode)); 
 
         if (lastNode) {
             const newEdge = {
@@ -89,43 +111,61 @@ const DnDFlow = () => {
             };
 
             setEdges((eds) => eds.concat(newEdge));
-        }
-        
+        }      
     };
 
+    const handleResetData = () => {
+        setNodes([]);
+        setEdges([]);
+    }
+
+  
     return (
-        <div className="dndflow">
-            <Sidebar 
-                onAddNode={e => {
-                    addNewNode({ type: 'selectorNode', data: {...e, isInflow: true} });
-                }}
-            />
+        <div className='dndflow-container'>
+            <div className="dndflow">
+                <Sidebar
+                    onAddNode={e => {
+                        addNewNode({ type: 'selectorNode', data: { ...e, isInflow: true } });
+                    }}
+                />
 
-            <div className="reactflow-wrapper" ref={reactFlowWrapper}>
-                <div className="workflow-header"  >
-                    <Typography type={'section-header'}> Logic Board - Company Workflow </Typography>
-                    <EditIcon />
+                <div className="reactflow-wrapper" ref={reactFlowWrapper}>
+                    <div className="workflow-header"  >
+                        <Typography type={'section-header'}> Logic Board - Company Workflow </Typography>
+                        <EditIcon />
+                    </div>
+
+                    <ReactFlow
+                        nodes={nodes}
+                        edges={edges}
+                        onNodesChange={onNodesChange}
+                        onEdgesChange={onEdgesChange}
+                        onConnect={onConnect}
+                        onDrop={onDrop}
+                        onDragOver={onDragOver}
+                        nodeTypes={{ selectorNode: NodeWrapper }}
+                        connectionLineStyle={{ stroke: '#0E263F' }}
+                        onReconnect={onReconnect}
+                        onReconnectStart={onReconnectStart}
+                        onReconnectEnd={onReconnectEnd}
+                        maxZoom={1.75}
+                        minZoom={0.75}
+                    >
+                        <CustomControls />
+                    </ReactFlow>
                 </div>
+            </div>
 
-                <ReactFlow
-                    nodes={nodes}
-                    edges={edges}
-                    onNodesChange={onNodesChange}
-                    onEdgesChange={onEdgesChange}
-                    onConnect={onConnect}
-                    onDrop={onDrop}
-                    onDragOver={onDragOver}
-                    nodeTypes={{ selectorNode: NodeWrapper }}
-                    connectionLineStyle={{ stroke: '#0E263F' }}
-                >
-                    <CustomControls />
-                </ReactFlow>
+            <div className='buttons'>
+                <Button type="destructive" label="Reset Data" onClick={handleResetData} />
+                <Button type="primary" label="Save Workflow" />
             </div>
         </div>
     );
 };
 
 const NewWorkflow = () => {  
+
     return (
         <div className='workflow-list-container'>
             <div className="workflow-header">
@@ -142,11 +182,6 @@ const NewWorkflow = () => {
                     <DnDFlow />
                 </DnDProvider>
             </ReactFlowProvider>
-
-            <div style={{display:"flex", justifyContent:"flex-end", alignItems:"center", gap:"8px", margin:"16px 0"}}>
-                <Button type="destructive" label="Reset Data" />
-                <Button type="primary" label="Save Workflow" />
-            </div>
 
         </div>
     );

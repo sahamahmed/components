@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   height: fit-content;
+  
   .workflow-body {
     display: flex;
     flex-grow: 1;
@@ -10,6 +11,8 @@
 
   .workflow-sidebar {
     width: 280px;
+    height: 100vh;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -29,17 +32,11 @@
   }
 }
 
-.workflow-header {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-
 .workflow-select-node {
   display: flex;
    justify-content: space-between;
   align-items: center;
+  margin-bottom: 8px;
 }
 
 .select-node {
@@ -49,13 +46,49 @@
   position: relative;
 }
 
-.dndflow {
+.dndflow-container {
   display: flex;
+  flex-direction: column;
   gap: 16px;
-  flex-grow: 1;
   height: 100%;
-  width: 100%;
+    
+  .dndflow {
+    display: flex;
+    gap: 16px;
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin: 16px 0 8px 0;
+  }
+
+  .reactflow-wrapper {
+    flex-grow: 1;
+    height: 100vh;
+    background-color: #F5FAFF;
+    border: 1px solid #D8E0E8;
+    border-radius: 12px;
+    padding: 12px;
+
+  a {
+    opacity: 0;
+  }
+
+  .workflow-header {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  }
 }
+
+
 
 .dndflow .dndnode {
   height: 20px;
@@ -67,19 +100,6 @@
   justify-content: center;
   align-items: center;
   cursor: grab;
-}
-
-.dndflow .reactflow-wrapper {
-  flex-grow: 1;
-  height: 920px;
-  background-color: #F5FAFF;
-  border: 1px solid #D8E0E8;
-  border-radius: 12px;
-  padding: 12px;
-
-  a {
-    opacity: 0;
-  }
 }
 
 .dndflow .selectall {

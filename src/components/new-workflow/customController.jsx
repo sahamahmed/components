@@ -1,5 +1,5 @@
-import {ReactComponent as UndoIcon} from '../../public/icons/undo.svg'
-import {ReactComponent as RedoIcon} from '../../public/icons/redo.svg'
+// import {ReactComponent as UndoIcon} from '../../public/icons/undo.svg'
+// import {ReactComponent as RedoIcon} from '../../public/icons/redo.svg'
 import { ReactComponent as ZoomInIcon } from '../../public/icons/zoom_in.svg';
 import { ReactComponent as ZoomOutIcon } from '../../public/icons/zoom_out.svg';
 import {ReactComponent as RunIcon} from '../../public/icons/run.svg';
@@ -22,13 +22,13 @@ const CustomControls = () => {
 
     return (
         <div className='control'>
-            <div>
+            {/* <div>
                 <UndoIcon />
             </div>
 
             <div>
                 <RedoIcon />
-            </div>
+            </div> */}
 
             <div onClick={handleZoomIn} >
                 <ZoomInIcon />

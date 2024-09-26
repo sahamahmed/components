@@ -9,6 +9,7 @@ import Select from '../shared/components/select/Select';
 import Typography from '../shared/components/typography/Typography';
 
 import schema from '../schemas/NodeDefinition_schema.json'
+import Input from '../shared/components/inputs/text/Text';
 
 const NodeList = (schema?.oneOf || []).map(s => {
     return {
@@ -59,8 +60,10 @@ const Sidebar = ({ onAddNode, onDelete }) => {
                         </svg>
                         <Typography type="section-header">Select Nodes</Typography>
                     </div>
-                    <Select type="single" defaultValue={{ value: "", label: "Type" }} />
+                    <Select type="single" defaultValue={{ value: "", label: "Class" }} />
                 </div>
+
+                <Input type="text" placeholder="Search" isPrefix  />
 
                 {NodeList.map((node, index) => (
                     <div

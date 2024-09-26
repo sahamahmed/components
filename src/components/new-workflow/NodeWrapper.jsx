@@ -1,4 +1,4 @@
-import { Handle } from '@xyflow/react'
+import { Handle, useConnection, useEdges, useHandleConnections } from '@xyflow/react'
 import React from 'react'
 import Drawer from '../shared/components/drawer/Drawer';
 import EditDataForm from './EditDataForm';
@@ -9,9 +9,26 @@ import { ReactComponent as EditIcon } from '../../public/icons/edit.svg';
 import { ReactComponent as DeleteIcon } from '../../public/icons/delete.svg';
 import './customNode.scss';
 
-const NodeWrapper = ({ data}) => {
+const CustomHandle = (props) => {
+    const connections = useHandleConnections({
+        type: props.type,
+    });
+    console.log('connections', connections);
+
+    return (
+        <Handle
+            {...props}
+            isConnectable={connections.length < props.connectionCount}
+        />
+    );
+};
+
+
+
+const NodeWrapper = ({ data }) => {
     const { title, hasInput, onDelete} = data;
     const [drawerOpen, setDrawerOpen] = React.useState(false);
+
     const onSubmit = () => {
         console.log('Edit Data submitted');
     };
@@ -22,28 +39,33 @@ const NodeWrapper = ({ data}) => {
         }
     };
   return (
-    <> <CustomNode data={data} >
+    <> 
+        <CustomNode data={data} >
           {hasInput ? (
               <>
-                  <Handle
+                  <CustomHandle
                       type="source"
                       position="right"
                       id={title}
                       style={{ background: '#555' }}
+                      connectionCount={2}
+
                   />
-                  <Handle
+                  <CustomHandle
                       type="target"
                       position="left"
                       id={title}
                       style={{ background: '#555' }}
+                      connectionCount={2}
                   />
               </>
           ) : (
-                  <Handle
+                  <CustomHandle
                       type="source"
                       position="right"
                       id={title}
                       style={{ background: '#555' }}
+                      connectionCount={2}
                   />
           )
           }

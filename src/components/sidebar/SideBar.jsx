@@ -1,6 +1,6 @@
 import React from 'react';
 import './SideBar.scss';
-import {ReactComponent as Logo} from '../../public/icons/logo192.png.svg';
+import {ReactComponent as Logo} from '../../public/icons/logo.svg';
 import { NavLink } from 'react-router-dom';
 
 const sidebarItems = [
